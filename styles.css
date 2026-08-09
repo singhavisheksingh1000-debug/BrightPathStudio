@@ -1,7 +1,7 @@
 /* ==========================================================================
-   BrightPathStudio — shared stylesheet
-   Design tokens + components used across every page.
-   ========================================================================== */
+    BrightPathStudio — shared stylesheet
+    Design tokens + components used across every page.
+    ========================================================================== */
 
 :root{
   --paper:#eef0e6;
@@ -69,7 +69,7 @@ a{color:inherit;}
   display:inline-block;
 }
 
-h1,h2,h3{
+h1,h2,h3,h4{
   font-family:var(--serif);
   font-weight:450;
   margin:0;
@@ -312,6 +312,22 @@ section{padding:78px 0;}
   border-bottom:1px solid var(--ink); padding-bottom:2px; white-space:nowrap;
 }
 
+/* ---------- FREE RESOURCES SECTION ---------- */
+.free-resources-section{background:rgba(198,154,73,.06);}
+.product-card-free .badge-free{background:var(--gold); color:var(--ink);}
+
+/* ---------- FEATURED SECTION ---------- */
+.featured-section{background:var(--paper);}
+
+/* ---------- SHOP BY CATEGORY ---------- */
+#shop-by-category{background:var(--paper);}
+
+.category-section{padding:54px 0; border-bottom:1px solid var(--line);}
+.category-section:last-child{border-bottom:none;}
+.category-head{margin-bottom:36px;}
+.category-head h3{font-size:clamp(22px,2.5vw,32px); margin:0 0 8px;}
+.category-head p{color:var(--ink-soft); font-size:15px; margin:0;}
+
 /* ---------- COLLECTIONS ---------- */
 .collections-grid{
   display:grid;
@@ -385,6 +401,7 @@ section{padding:78px 0;}
 }
 .product-body{padding:16px 16px 18px; display:flex; flex-direction:column; flex:1;}
 .product-body h3{font-size:16.5px; margin-bottom:6px; font-weight:500;}
+.product-body h4{font-size:15px; margin:0 0 6px; font-weight:500;}
 .product-body p{font-size:13px; color:var(--ink-soft); margin:0 0 12px; line-height:1.4; flex:1;}
 .product-foot{display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;}
 .rating{font-family:var(--mono); font-size:11.5px; color:var(--ink-soft);}
