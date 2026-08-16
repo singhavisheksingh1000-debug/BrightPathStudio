@@ -1,0 +1,80 @@
+name: Refine BrightPathStudio positioning
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  positioning:
+    if: "!contains(github.event.head_commit.message, 'Refine BrightPathStudio brand positioning')"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Update homepage positioning
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+
+          # Brand positioning in hero
+          s = s.replace(
+              '<span class="eyebrow">Practical printable & digital planners</span><h1>Plan Better. Live Lighter.</h1><p>Practical printable and digital planners, helpful guides, and free resources designed to make everyday life a little easier.</p>',
+              '<span class="eyebrow">Planners • Journals • Printable Tools</span><h1>Plan Better. Live Lighter.</h1><p>Thoughtfully designed planners, journals, and printable tools for life\'s important moments — from everyday productivity to weddings, wellness, pregnancy, and family life.</p>'
+          )
+
+          # Simplify desktop navigation into a clear brand hierarchy.
+          old_nav = '<ul class="nav-links"><li><a href="/">Home</a></li><li><a href="#free-resources">Free Resources</a></li><li><a href="#adhd-planners">ADHD</a></li><li><a href="#career-tools">Career</a></li><li><a href="#wedding-planners">Wedding</a></li><li><a href="#wellness-planners">Wellness</a></li><li><a href="#pregnancy-baby">Pregnancy</a></li><li><a href="#halloween-kids">Halloween</a></li><li><a href="#blog">Blog</a></li><li><a href="/about.html">About</a></li></ul>'
+          new_nav = '<ul class="nav-links"><li><a href="/">Home</a></li><li><a href="#shop-by-category">Shop</a></li><li><a href="#free-resources">Free Resources</a></li><li><a href="#featured-products">Best Sellers</a></li><li><a href="#blog">Blog</a></li><li><a href="/about.html">About</a></li></ul>'
+          s = s.replace(old_nav, new_nav)
+
+          # Add the strategic category architecture before Featured Planners.
+          marker = '  <section id="featured-products" class="featured-section">'
+          if 'id="brand-collections"' not in s and marker in s:
+              section = '''  <section id="brand-collections" class="brand-collections-section"><div class="wrap">
+              <div class="sec-head"><span class="eyebrow">Explore BrightPathStudio</span><h2>Plan Your Life. Plan Your Moments.</h2><p>Find thoughtfully designed tools for the parts of life that matter most.</p></div>
+              <div class="collection-groups">
+                <div class="collection-group"><div class="collection-group-head"><span class="collection-kicker">01</span><h3>Plan Your Life</h3><p>Tools for staying organized, focused, and intentional.</p></div><div class="collection-links"><a href="#adhd-planners"><strong>ADHD & Productivity</strong><span>Focus, time & task planning →</span></a><a href="#wellness-planners"><strong>Women's Wellness</strong><span>Reset, self-care & everyday balance →</span></a><a href="#career-tools"><strong>Students & Career</strong><span>Study, career & professional planning →</span></a></div></div>
+                <div class="collection-group"><div class="collection-group-head"><span class="collection-kicker">02</span><h3>Plan Your Moments</h3><p>Beautiful tools for life's biggest milestones.</p></div><div class="collection-links"><a href="#wedding-planners"><strong>Wedding</strong><span>From engagement to the big day →</span></a><a href="#pregnancy-baby"><strong>Pregnancy & Baby</strong><span>Plan, remember & celebrate new beginnings →</span></a></div></div>
+                <div class="collection-group"><div class="collection-group-head"><span class="collection-kicker">03</span><h3>Family & Fun</h3><p>Creative printables for kids and seasonal celebrations.</p></div><div class="collection-links"><a href="#halloween-kids"><strong>Kids</strong><span>Activities, puzzles & creative fun →</span></a><a href="#halloween-kids"><strong>Halloween & Christmas</strong><span>Seasonal printables & festive fun →</span></a></div></div>
+              </div>
+            </div></section>\n'''
+              s = s.replace(marker, section + marker, 1)
+
+          p.write_text(s, encoding='utf-8')
+          PY
+
+      - name: Add collection styles
+        run: |
+          cat >> styles.css <<'EOF'
+
+/* ---------- BRAND POSITIONING / COLLECTIONS ---------- */
+.brand-collections-section{padding:72px 0 78px;background:var(--paper-card);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.collection-groups{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.collection-group{background:var(--paper);border:1px solid var(--line);padding:28px;}
+.collection-group-head{padding-bottom:20px;border-bottom:1px solid var(--line);margin-bottom:4px;}
+.collection-kicker{font-family:var(--mono);font-size:11px;color:var(--gold);letter-spacing:.08em;}
+.collection-group h3{font-size:25px;margin:7px 0 7px;}
+.collection-group-head p{font-size:13px;color:var(--ink-soft);margin:0;}
+.collection-links{display:grid;}
+.collection-links a{display:flex;flex-direction:column;gap:3px;padding:15px 0;text-decoration:none;border-bottom:1px solid var(--line);transition:padding-left .15s ease;}
+.collection-links a:last-child{border-bottom:0;}
+.collection-links a:hover{padding-left:5px;}
+.collection-links strong{font-family:var(--serif);font-size:17px;font-weight:500;}
+.collection-links span{font-family:var(--mono);font-size:11px;color:var(--ink-soft);}
+@media(max-width:900px){.collection-groups{grid-template-columns:1fr 1fr;}.collection-group:last-child{grid-column:1/-1;}}
+@media(max-width:560px){.collection-groups{grid-template-columns:1fr;}.collection-group:last-child{grid-column:auto;}.brand-collections-section{padding:58px 0;}}
+EOF
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html styles.css
+          git diff --cached --quiet && exit 0
+          git commit -m "Refine BrightPathStudio brand positioning"
+          git push
