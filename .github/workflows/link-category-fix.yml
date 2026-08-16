@@ -1,0 +1,32 @@
+name: Load category card stylesheet
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  load-css:
+    if: "!contains(github.event.head_commit.message, 'Load polished category card stylesheet')"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Link category stylesheet
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('index.html')
+          s=p.read_text(encoding='utf-8')
+          tag='<link rel="stylesheet" href="/category-fix.css">'
+          if tag not in s:
+              s=s.replace('<link rel="stylesheet" href="/styles.css">','<link rel="stylesheet" href="/styles.css">\n'+tag,1)
+              p.write_text(s,encoding='utf-8')
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --cached --quiet && exit 0
+          git commit -m "Load polished category card stylesheet"
+          git push
