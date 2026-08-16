@@ -1,0 +1,59 @@
+name: Fix header navigation spacing
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  fix-header:
+    if: "!contains(github.event.head_commit.message, 'Fix header navigation spacing')"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Apply navigation spacing
+        run: |
+          cat >> styles.css <<'EOF'
+
+/* ---------- HEADER SPACING FIX ---------- */
+@media (min-width:861px){
+  .nav{
+    display:grid;
+    grid-template-columns:auto minmax(0,1fr) auto;
+    align-items:center;
+    column-gap:42px;
+  }
+  .nav-links{
+    justify-content:center;
+    align-items:center;
+    gap:28px;
+    white-space:nowrap;
+  }
+  .nav-links a{white-space:nowrap;}
+  .nav-right{gap:18px; margin-left:8px;}
+}
+
+@media (min-width:861px) and (max-width:1180px){
+  .nav{column-gap:24px;}
+  .nav-links{gap:19px; font-size:13px;}
+  .nav-right{gap:12px; margin-left:0;}
+}
+
+@media (max-width:860px){
+  .nav{gap:18px;}
+  .nav-right{gap:10px;}
+}
+EOF
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add styles.css
+          git diff --cached --quiet && exit 0
+          git commit -m "Fix header navigation spacing"
+          git push
