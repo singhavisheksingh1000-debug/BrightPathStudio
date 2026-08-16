@@ -23,7 +23,6 @@
   let cart = [];
   let toastTimer = null;
 
-  // Load cart from localStorage
   try{
     const saved = localStorage.getItem('bps_cart');
     if(saved) cart = JSON.parse(saved);
@@ -76,7 +75,6 @@
     }).join('');
     cartTotal.textContent = '$' + total.toFixed(2);
 
-    // Attach remove handlers
     cartItems.querySelectorAll('.rm').forEach(btn => {
       btn.addEventListener('click', () => {
         const idx = parseInt(btn.getAttribute('data-idx'), 10);
@@ -117,15 +115,12 @@
     mobileMenu.classList.remove('open');
   }
 
-  // Mobile menu
   if(menuToggle) menuToggle.addEventListener('click', openMenu);
   if(menuClose) menuClose.addEventListener('click', closeMenu);
 
-  // Cart drawer
   if(bagBtn) bagBtn.addEventListener('click', openCart);
   if(cartClose) cartClose.addEventListener('click', closeCart);
 
-  // Overlay closes both
   if(overlay){
     overlay.addEventListener('click', () => {
       closeMenu();
@@ -133,7 +128,6 @@
     });
   }
 
-  // Add to bag
   document.addEventListener('click', (e) => {
     const btn = e.target.closest('.add-btn');
     if(!btn) return;
@@ -150,7 +144,6 @@
     showToast('Added to bag');
   });
 
-  // Blog filter
   const filterChips = document.querySelectorAll('.filter-chip');
   const blogCards = document.querySelectorAll('.blog-card');
   filterChips.forEach(chip => {
@@ -165,7 +158,6 @@
     });
   });
 
-  // Cookie banner
   function checkCookieConsent(){
     try{
       return localStorage.getItem('bps_cookie_consent');
@@ -196,7 +188,6 @@
     });
   }
 
-  // Newsletter form (placeholder — replace with real backend)
   const nform = document.getElementById('newsletterForm');
   const nstatus = document.getElementById('nstatus');
   if(nform){
@@ -208,7 +199,6 @@
     });
   }
 
-  // Contact form (placeholder — replace with real backend)
   const cform = document.getElementById('contactForm');
   const cstatus = document.getElementById('cstatus');
   if(cform){
@@ -220,7 +210,338 @@
     });
   }
 
-  // Initialize
+  /* =========================================
+     HOMEPAGE CATEGORY SLIDER
+     Clickable: ADHD, Wedding, Pregnancy,
+     Kids, Festive/Halloween
+  ========================================= */
+  function initHeroSlider(){
+    const oldMock = document.querySelector('.planner-mock');
+    if(!oldMock) return;
+
+    const slides = [
+      {
+        title: 'ADHD Life OS',
+        subtitle: 'Focus, organize & plan with less overwhelm',
+        alt: 'ADHD Life OS digital planner',
+        image: 'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=85&w=1200&auto=format&fit=crop',
+        href: '#adhd-planners'
+      },
+      {
+        title: 'Wedding Planner',
+        subtitle: 'Plan your dream wedding from yes to “I do”',
+        alt: 'Elegant wedding planning materials',
+        image: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=85&w=1200&auto=format&fit=crop',
+        href: '#wedding-planners'
+      },
+      {
+        title: 'Pregnancy Planner',
+        subtitle: 'Capture the journey and prepare for baby',
+        alt: 'Pregnancy and baby memory planning',
+        image: 'https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=85&w=1200&auto=format&fit=crop',
+        href: '#pregnancy-baby'
+      },
+      {
+        title: 'Kids Activity Books',
+        subtitle: 'Fun printable activities for creative kids',
+        alt: 'Kids creative activity materials',
+        image: 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?q=85&w=1200&auto=format&fit=crop',
+        href: '#halloween-kids'
+      },
+      {
+        title: 'Festive Printables',
+        subtitle: 'Halloween fun, party planning & seasonal activities',
+        alt: 'Halloween festive planning and activities',
+        image: 'https://images.unsplash.com/photo-1543589077-47d81606c1bf?q=85&w=1200&auto=format&fit=crop',
+        href: '#halloween-kids'
+      }
+    ];
+
+    const slider = document.createElement('div');
+    slider.className = 'hero-slider';
+    slider.setAttribute('aria-label', 'BrightPathStudio planner categories');
+
+    slider.innerHTML = `
+      <div class="hero-slides"></div>
+      <button class="hero-slider-arrow hero-slider-prev" type="button" aria-label="Previous category">‹</button>
+      <button class="hero-slider-arrow hero-slider-next" type="button" aria-label="Next category">›</button>
+      <div class="hero-slider-dots" role="tablist" aria-label="Choose planner category"></div>
+    `;
+
+    const slidesContainer = slider.querySelector('.hero-slides');
+    const dotsContainer = slider.querySelector('.hero-slider-dots');
+
+    slides.forEach((slide, index) => {
+      const link = document.createElement('a');
+      link.className = 'hero-slide' + (index === 0 ? ' active' : '');
+      link.href = slide.href;
+      link.setAttribute('aria-label', `Explore ${slide.title}`);
+      link.innerHTML = `
+        <img src="${slide.image}" alt="${slide.alt}" loading="${index === 0 ? 'eager' : 'lazy'}">
+        <div class="hero-slide-shade"></div>
+        <div class="hero-slide-content">
+          <span class="hero-slide-kicker">BrightPathStudio Collection</span>
+          <strong>${slide.title}</strong>
+          <span>${slide.subtitle}</span>
+          <em>Explore collection →</em>
+        </div>
+      `;
+      slidesContainer.appendChild(link);
+
+      const dot = document.createElement('button');
+      dot.className = 'hero-slider-dot' + (index === 0 ? ' active' : '');
+      dot.type = 'button';
+      dot.setAttribute('role', 'tab');
+      dot.setAttribute('aria-label', `Show ${slide.title}`);
+      dot.setAttribute('aria-selected', index === 0 ? 'true' : 'false');
+      dot.addEventListener('click', () => showSlide(index, true));
+      dotsContainer.appendChild(dot);
+    });
+
+    oldMock.replaceWith(slider);
+
+    const slideEls = Array.from(slidesContainer.querySelectorAll('.hero-slide'));
+    const dotEls = Array.from(dotsContainer.querySelectorAll('.hero-slider-dot'));
+    const prev = slider.querySelector('.hero-slider-prev');
+    const next = slider.querySelector('.hero-slider-next');
+    let current = 0;
+    let timer = null;
+
+    function showSlide(index, restartTimer = false){
+      current = (index + slideEls.length) % slideEls.length;
+      slideEls.forEach((el, i) => el.classList.toggle('active', i === current));
+      dotEls.forEach((el, i) => {
+        const active = i === current;
+        el.classList.toggle('active', active);
+        el.setAttribute('aria-selected', active ? 'true' : 'false');
+      });
+      if(restartTimer) startAutoPlay();
+    }
+
+    function startAutoPlay(){
+      clearInterval(timer);
+      timer = setInterval(() => showSlide(current + 1), 4500);
+    }
+
+    prev.addEventListener('click', (event) => {
+      event.preventDefault();
+      showSlide(current - 1, true);
+    });
+
+    next.addEventListener('click', (event) => {
+      event.preventDefault();
+      showSlide(current + 1, true);
+    });
+
+    slider.addEventListener('mouseenter', () => clearInterval(timer));
+    slider.addEventListener('mouseleave', startAutoPlay);
+    slider.addEventListener('focusin', () => clearInterval(timer));
+    slider.addEventListener('focusout', (event) => {
+      if(!slider.contains(event.relatedTarget)) startAutoPlay();
+    });
+
+    // Touch swipe for mobile
+    let touchStartX = 0;
+    slider.addEventListener('touchstart', e => {
+      touchStartX = e.changedTouches[0].clientX;
+    }, {passive: true});
+    slider.addEventListener('touchend', e => {
+      const distance = e.changedTouches[0].clientX - touchStartX;
+      if(Math.abs(distance) > 45){
+        showSlide(current + (distance < 0 ? 1 : -1), true);
+      }
+    }, {passive: true});
+
+    startAutoPlay();
+  }
+
+  /* Slider styling is injected here so no manual CSS file edit is required. */
+  const sliderStyle = document.createElement('style');
+  sliderStyle.textContent = `
+    .hero-slider {
+      position: relative;
+      width: 100%;
+      height: clamp(390px, 32vw, 500px);
+      min-height: 390px;
+      overflow: hidden;
+      border-radius: 18px;
+      background: #e8eadf;
+      box-shadow: 0 22px 50px rgba(32,41,31,.14);
+      isolation: isolate;
+    }
+
+    .hero-slides,
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+    }
+
+    .hero-slide {
+      display: block;
+      opacity: 0;
+      visibility: hidden;
+      transform: scale(1.015);
+      transition: opacity .65s ease, transform 4.5s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .hero-slide.active {
+      opacity: 1;
+      visibility: visible;
+      transform: scale(1);
+      z-index: 2;
+    }
+
+    .hero-slide img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .hero-slide-shade {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(20,29,22,.04) 30%, rgba(20,29,22,.78) 100%);
+    }
+
+    .hero-slide-content {
+      position: absolute;
+      left: 28px;
+      right: 28px;
+      bottom: 26px;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      color: #fff;
+      text-shadow: 0 1px 3px rgba(0,0,0,.18);
+    }
+
+    .hero-slide-kicker {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: .68rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: 7px;
+    }
+
+    .hero-slide-content strong {
+      font-family: "Fraunces", serif;
+      font-size: clamp(1.65rem, 2.8vw, 2.55rem);
+      line-height: 1.05;
+    }
+
+    .hero-slide-content > span:not(.hero-slide-kicker) {
+      margin-top: 7px;
+      max-width: 430px;
+      font-size: .9rem;
+      line-height: 1.45;
+    }
+
+    .hero-slide-content em {
+      margin-top: 13px;
+      font-style: normal;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: .74rem;
+      letter-spacing: .04em;
+      border-bottom: 1px solid rgba(255,255,255,.8);
+      padding-bottom: 3px;
+    }
+
+    .hero-slider-arrow {
+      position: absolute;
+      top: 50%;
+      z-index: 6;
+      transform: translateY(-50%);
+      width: 42px;
+      height: 42px;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(255,255,255,.9);
+      color: #20291f;
+      font-size: 28px;
+      line-height: 1;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(0,0,0,.14);
+      transition: transform .2s ease, background .2s ease;
+    }
+
+    .hero-slider-arrow:hover {
+      transform: translateY(-50%) scale(1.06);
+      background: #fff;
+    }
+
+    .hero-slider-prev { left: 16px; }
+    .hero-slider-next { right: 16px; }
+
+    .hero-slider-dots {
+      position: absolute;
+      left: 50%;
+      bottom: 13px;
+      z-index: 7;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 7px;
+      padding: 6px 9px;
+      border-radius: 999px;
+      background: rgba(20,29,22,.28);
+      backdrop-filter: blur(6px);
+    }
+
+    .hero-slider-dot {
+      width: 8px;
+      height: 8px;
+      padding: 0;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(255,255,255,.58);
+      cursor: pointer;
+      transition: transform .2s ease, background .2s ease;
+    }
+
+    .hero-slider-dot.active {
+      background: #fff;
+      transform: scale(1.25);
+    }
+
+    @media (max-width: 768px) {
+      .hero-slider {
+        height: 410px;
+        min-height: 410px;
+        margin-top: 28px;
+        border-radius: 14px;
+      }
+
+      .hero-slide-content {
+        left: 20px;
+        right: 20px;
+        bottom: 30px;
+      }
+
+      .hero-slide-content strong {
+        font-size: 1.65rem;
+      }
+
+      .hero-slide-content > span:not(.hero-slide-kicker) {
+        font-size: .8rem;
+      }
+
+      .hero-slider-arrow {
+        width: 36px;
+        height: 36px;
+        font-size: 24px;
+      }
+
+      .hero-slider-prev { left: 10px; }
+      .hero-slider-next { right: 10px; }
+    }
+  `;
+  document.head.appendChild(sliderStyle);
+
+  initHeroSlider();
+
   updateBagCount();
   renderCart();
 })();
