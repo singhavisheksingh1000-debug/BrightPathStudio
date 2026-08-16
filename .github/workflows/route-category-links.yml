@@ -1,0 +1,56 @@
+name: Route BrightPathStudio category links
+on:
+  push:
+    branches: [main]
+permissions:
+  contents: write
+jobs:
+  route-links:
+    if: "!contains(github.event.head_commit.message, 'Route homepage category cards')"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update category destinations
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+
+          # Hero slider destinations
+          replacements = [
+            ('<a class="hero-slide is-active" href="#featured-products" data-slide="0">', '<a class="hero-slide is-active" href="/category-adhd.html" data-slide="0">'),
+            ('<a class="hero-slide" href="#featured-products" data-slide="1">', '<a class="hero-slide" href="/category-wedding.html" data-slide="1">'),
+            ('<a class="hero-slide" href="#featured-products" data-slide="2">', '<a class="hero-slide" href="/category-pregnancy-baby.html" data-slide="2">'),
+            ('<a class="hero-slide" href="#featured-products" data-slide="3">', '<a class="hero-slide" href="/category-wellness.html" data-slide="3">'),
+            ('<a class="hero-slide" href="#featured-products" data-slide="4">', '<a class="hero-slide" href="/category-kids.html" data-slide="4">'),
+          ]
+          for a,b in replacements: s=s.replace(a,b,1)
+
+          # Category cards: replace only within the category collections block.
+          block_start = s.find('<section id="shop-by-category"')
+          block_end = s.find('</section>', block_start)
+          if block_start >= 0 and block_end >= 0:
+            block = s[block_start:block_end]
+            mapping = [
+              ('<a href="#featured-products"><strong>ADHD & Productivity</strong>', '<a href="/category-adhd.html"><strong>ADHD & Productivity</strong>'),
+              ('<a href="#featured-products"><strong>Women\'s Wellness</strong>', '<a href="/category-wellness.html"><strong>Women\'s Wellness</strong>'),
+              ('<a href="#featured-products"><strong>Students & Career</strong>', '<a href="/category-students-career.html"><strong>Students & Career</strong>'),
+              ('<a href="#featured-products"><strong>Wedding</strong>', '<a href="/category-wedding.html"><strong>Wedding</strong>'),
+              ('<a href="#featured-products"><strong>Pregnancy & Baby</strong>', '<a href="/category-pregnancy-baby.html"><strong>Pregnancy & Baby</strong>'),
+              ('<a href="#featured-products"><strong>Kids</strong>', '<a href="/category-kids.html"><strong>Kids</strong>'),
+              ('<a href="#featured-products"><strong>Halloween & Christmas</strong>', '<a href="/category-seasonal.html"><strong>Halloween & Christmas</strong>'),
+            ]
+            for a,b in mapping: block=block.replace(a,b,1)
+            s=s[:block_start]+block+s[block_end:]
+
+          p.write_text(s,encoding='utf-8')
+          PY
+      - name: Commit routed links
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --cached --quiet && exit 0
+          git commit -m "Route homepage category cards"
+          git push
