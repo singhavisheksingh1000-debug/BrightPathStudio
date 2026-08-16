@@ -1,0 +1,57 @@
+name: Upgrade hero category slides
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  upgrade:
+    if: "!contains(github.event.head_commit.message, 'Upgrade hero category slides')"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Replace hero slider
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+          start = s.find('  <div class="hero-slider" id="heroSlider"')
+          end = s.find('\n  </div>', start)
+          if start == -1 or end == -1:
+              raise SystemExit('Hero slider block not found')
+          end += len('\n  </div>')
+          block = '''  <div class="hero-slider" id="heroSlider" aria-label="Explore BrightPathStudio categories">
+    <a class="hero-slide is-active" href="#featured-products" data-slide="0"><div class="hero-slide-image" style="background-image:url('https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=85&w=1000&auto=format&fit=crop');"></div><div class="hero-slide-overlay"></div><div class="hero-slide-content"><span class="hero-slide-kicker">01 • PLAN YOUR LIFE</span><h2>ADHD & PRODUCTIVITY</h2><p>Focus • Time • Tasks</p><span class="hero-slide-link">Explore ADHD →</span></div></a>
+    <a class="hero-slide" href="#featured-products" data-slide="1"><div class="hero-slide-image" style="background-image:url('https://images.unsplash.com/photo-1499209974431-9dddcece7f88?q=85&w=1000&auto=format&fit=crop');"></div><div class="hero-slide-overlay"></div><div class="hero-slide-content"><span class="hero-slide-kicker">02 • PLAN YOUR LIFE</span><h2>WOMEN'S WELLNESS</h2><p>Reset • Reflect • Rebalance</p><span class="hero-slide-link">Explore Wellness →</span></div></a>
+    <a class="hero-slide" href="#featured-products" data-slide="2"><div class="hero-slide-image" style="background-image:url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=85&w=1000&auto=format&fit=crop');"></div><div class="hero-slide-overlay"></div><div class="hero-slide-content"><span class="hero-slide-kicker">03 • PLAN YOUR MOMENTS</span><h2>WEDDING</h2><p>Plan your perfect day</p><span class="hero-slide-link">Explore Wedding →</span></div></a>
+    <a class="hero-slide" href="#featured-products" data-slide="3"><div class="hero-slide-image" style="background-image:url('https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=85&w=1000&auto=format&fit=crop');"></div><div class="hero-slide-overlay"></div><div class="hero-slide-content"><span class="hero-slide-kicker">04 • PLAN YOUR MOMENTS</span><h2>PREGNANCY & BABY</h2><p>Plan, remember & celebrate</p><span class="hero-slide-link">Explore Pregnancy & Baby →</span></div></a>
+    <a class="hero-slide" href="#featured-products" data-slide="4"><div class="hero-slide-image" style="background-image:url('https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?q=85&w=1000&auto=format&fit=crop');"></div><div class="hero-slide-overlay"></div><div class="hero-slide-content"><span class="hero-slide-kicker">05 • FAMILY & FUN</span><h2>KIDS</h2><p>Activities • Puzzles • Creative Fun</p><span class="hero-slide-link">Explore Kids →</span></div></a>
+    <a class="hero-slide" href="#featured-products" data-slide="5"><div class="hero-slide-image" style="background-image:url('https://images.unsplash.com/photo-1543589077-47d81606c1bf?q=85&w=1000&auto=format&fit=crop');"></div><div class="hero-slide-overlay"></div><div class="hero-slide-content"><span class="hero-slide-kicker">06 • FAMILY & FUN</span><h2>HALLOWEEN & CHRISTMAS</h2><p>Festive printables • Games • Activities</p><span class="hero-slide-link">Explore Seasonal →</span></div></a>
+    <button class="hero-slider-arrow hero-slider-prev" type="button" aria-label="Previous slide">‹</button><button class="hero-slider-arrow hero-slider-next" type="button" aria-label="Next slide">›</button><div class="hero-slider-dots" role="tablist" aria-label="Hero category slides"><button type="button" class="is-active" data-dot="0" aria-label="ADHD and Productivity"></button><button type="button" data-dot="1" aria-label="Women's Wellness"></button><button type="button" data-dot="2" aria-label="Wedding"></button><button type="button" data-dot="3" aria-label="Pregnancy and Baby"></button><button type="button" data-dot="4" aria-label="Kids"></button><button type="button" data-dot="5" aria-label="Halloween and Christmas"></button></div>
+  </div>'''
+          s = s[:start] + block + s[end:]
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Improve slider labels
+        run: |
+          cat >> styles.css <<'EOF'
+
+/* Category-first hero slider */
+.hero-slide-content h2{letter-spacing:-.02em;text-transform:uppercase}
+.hero-slide-kicker{font-weight:600}
+.hero-slide-link{font-weight:600}
+.hero-slider-dots button{cursor:pointer}
+@media(max-width:600px){.hero-slide-content h2{font-size:30px}.hero-slide-content p{font-size:13px}.hero-slide-link{font-size:11px}}
+EOF
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html styles.css
+          git diff --cached --quiet && exit 0
+          git commit -m "Upgrade hero category slides"
+          git push
