@@ -71,5 +71,7 @@
 <script>
 (function(){const slider=document.getElementById('heroSlider');if(!slider)return;const slides=[...slider.querySelectorAll('.hero-slide')],dots=[...slider.querySelectorAll('[data-dot]')];let current=0,timer;function show(i){current=(i+slides.length)%slides.length;slides.forEach((s,n)=>s.classList.toggle('is-active',n===current));dots.forEach((d,n)=>d.classList.toggle('is-active',n===current));}function next(){show(current+1);}function start(){clearInterval(timer);timer=setInterval(next,5500);}slider.querySelector('.hero-slider-next').addEventListener('click',e=>{e.preventDefault();next();start();});slider.querySelector('.hero-slider-prev').addEventListener('click',e=>{e.preventDefault();show(current-1);start();});dots.forEach((d,n)=>d.addEventListener('click',()=>{show(n);start();}));slider.addEventListener('mouseenter',()=>clearInterval(timer));slider.addEventListener('mouseleave',start);start();})();
 </script>
+  <div data-site-footer></div>
+<script src="/footer.js"></script>
 </body>
 </html>
