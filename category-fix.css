@@ -33,7 +33,6 @@
 .hero-slider .hero-slider-prev{left:16px}.hero-slider .hero-slider-next{right:16px}.hero-slider .hero-slider-arrow:hover{background:rgba(18,25,19,.72)}
 .hero-slider .hero-slider-dots{position:absolute!important;z-index:9!important;right:28px;top:24px;display:flex;gap:8px}
 .hero-slider .hero-slider-dots button{width:8px;height:8px;border:1px solid rgba(255,255,255,.9);background:transparent;border-radius:50%;padding:0;cursor:pointer}.hero-slider .hero-slider-dots button.is-active{background:#fff}
-/* Kill legacy pseudo-elements responsible for the gray oval over the photo. */
 .hero-slider::before,.hero-slider::after,.hero-slider .hero-slide::before,.hero-slider .hero-slide::after,.hero-slider .hero-slide-image::before,.hero-slider .hero-slide-image::after{content:none!important;display:none!important}
 .hero-slider .hero-slide:nth-child(1) .hero-slide-image{background-image:url('https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=90&w=1600&auto=format&fit=crop')!important}
 .hero-slider .hero-slide:nth-child(2) .hero-slide-image{background-image:url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=90&w=1600&auto=format&fit=crop')!important}
@@ -41,5 +40,30 @@
 .hero-slider .hero-slide:nth-child(4) .hero-slide-image{background-image:url('https://images.unsplash.com/photo-1499209974431-9dddcece7f88?q=90&w=1600&auto=format&fit=crop')!important}
 .hero-slider .hero-slide:nth-child(5) .hero-slide-image{background-image:url('https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?q=90&w=1600&auto=format&fit=crop')!important}
 
+/* PRODUCT CARDS — premium digital-product merchandising */
+.product-card{position:relative;overflow:hidden;border:1px solid var(--line);background:var(--paper-card);box-shadow:0 14px 34px -28px rgba(32,41,31,.55);transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.product-card:hover{transform:translateY(-5px);box-shadow:0 22px 44px -28px rgba(32,41,31,.5);border-color:#c9ccb8}
+.product-card .product-media{position:relative;min-height:190px;overflow:hidden;background:var(--paper);background-image:var(--img);background-size:cover;background-position:center}
+.product-card .product-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(32,41,31,0) 50%,rgba(32,41,31,.22) 100%);pointer-events:none}
+.product-card .product-cat{position:absolute;left:16px;bottom:14px;z-index:3;padding:5px 9px;background:rgba(248,249,242,.92);border:1px solid rgba(215,218,198,.9);font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-ink)}
+.product-card .badge{position:absolute;top:14px;left:14px;z-index:4;padding:6px 9px;background:var(--ink);color:var(--paper);font-family:var(--mono);font-size:10px;letter-spacing:.07em;text-transform:uppercase;box-shadow:0 5px 14px rgba(32,41,31,.18)}
+.product-card .badge-free{background:var(--gold);color:var(--ink)}
+.product-card .product-body{padding:22px 22px 24px}
+.product-card .product-body h3{font-size:21px;line-height:1.2;margin-bottom:9px}
+.product-card .product-body p{color:var(--ink-soft);font-size:13.5px;line-height:1.6;margin:0 0 14px}
+.product-card .product-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:4px;padding-top:12px;border-top:1px solid var(--line)}
+.product-card .rating{font-family:var(--mono);font-size:12px;letter-spacing:2px;color:var(--gold);white-space:nowrap}
+.product-card .price{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--ink);white-space:nowrap}
+.product-card .product-body::before{content:"DIGITAL • INSTANT DOWNLOAD";display:block;margin:0 0 12px;padding:7px 9px;background:rgba(198,154,73,.08);border-left:2px solid var(--gold);font-family:var(--mono);font-size:9.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-soft)}
+.product-card.product-card-free .product-body::before{content:"FREE • DIGITAL • INSTANT ACCESS"}
+.product-card:nth-child(2) .product-body::before{content:"300+ PAGES • PDF • INSTANT DOWNLOAD"}
+.product-card:nth-child(3) .product-body::before{content:"DIGITAL PLANNER • INSTANT ACCESS"}
+.product-card:nth-child(4) .product-body::before{content:"DIGITAL PLANNER • INSTANT ACCESS"}
+.product-card .product-body .btn{width:100%;justify-content:center;margin-top:12px;font-size:11px;font-weight:600;letter-spacing:.04em}
+.product-card .product-body .btn::after{content:"  ↗";font-size:13px}
+
+/* Subtle NEW marker for the wellness product without inventing customer claims. */
+#featured-products .product-card:nth-child(3) .product-media::before{content:"NEW";position:absolute;top:14px;right:14px;z-index:4;padding:6px 9px;background:var(--accent-ink);color:var(--paper);font-family:var(--mono);font-size:10px;letter-spacing:.08em;box-shadow:0 5px 14px rgba(32,41,31,.18)}
+
 @media(max-width:900px){#shop-by-category .collection-groups{grid-template-columns:1fr 1fr}#shop-by-category .collection-group:last-child{grid-column:1/-1}.hero-slider{height:400px}}
-@media(max-width:600px){#shop-by-category .collection-groups{grid-template-columns:1fr;gap:16px}#shop-by-category .collection-group:last-child{grid-column:auto}#shop-by-category .collection-group-head{padding:23px 21px 17px}#shop-by-category .collection-links{padding:3px 21px 8px}.hero-slider{height:380px}.hero-slider .hero-slide-content{max-width:calc(100% - 40px)!important;left:20px!important;right:20px!important;bottom:24px!important}.hero-slider .hero-slide-content h2{font-size:28px!important}.hero-slider .hero-slider-dots{right:20px;top:18px}.hero-slider .hero-slider-arrow{width:36px;height:36px}}
+@media(max-width:600px){#shop-by-category .collection-groups{grid-template-columns:1fr;gap:16px}#shop-by-category .collection-group:last-child{grid-column:auto}#shop-by-category .collection-group-head{padding:23px 21px 17px}#shop-by-category .collection-links{padding:3px 21px 8px}.hero-slider{height:380px}.hero-slider .hero-slide-content{max-width:calc(100% - 40px)!important;left:20px!important;right:20px!important;bottom:24px!important}.hero-slider .hero-slide-content h2{font-size:28px!important}.hero-slider .hero-slider-dots{right:20px;top:18px}.hero-slider .hero-slider-arrow{width:36px;height:36px}.product-card .product-body{padding:19px 18px 20px}.product-card .product-media{min-height:175px}.product-card .product-body h3{font-size:19px}.product-card .product-body::before{font-size:8.5px}.product-card .product-foot{align-items:flex-start;flex-direction:column;gap:7px}.product-card .product-body .btn{padding:12px 14px}}
