@@ -17,19 +17,29 @@
 #shop-by-category .collection-links span{grid-area:desc;font-family:var(--mono);font-size:10.5px;line-height:1.45;color:var(--ink-soft);margin-top:4px}
 #shop-by-category .collection-links a::after{content:"→";grid-area:arrow;font-family:var(--mono);font-size:17px;color:var(--accent-ink)}
 
-/* Hero slider: make each category image prominent and keep the section name readable. */
-.hero-slider .hero-slide-image{background-size:cover!important;background-position:center!important;background-repeat:no-repeat!important;min-height:100%;filter:saturate(.9)}
-.hero-slider .hero-slide-overlay{background:linear-gradient(180deg,rgba(18,25,19,.02) 18%,rgba(18,25,19,.12) 42%,rgba(18,25,19,.82) 100%)!important}
-.hero-slider .hero-slide-content{z-index:4;max-width:78%;padding:18px 20px 20px;border-left:3px solid rgba(255,255,255,.78);background:linear-gradient(90deg,rgba(18,25,19,.52),rgba(18,25,19,0));text-shadow:0 2px 8px rgba(0,0,0,.25)}
-.hero-slider .hero-slide-content h2{margin:6px 0 4px!important;letter-spacing:.01em}
-.hero-slider .hero-slide-content p{margin:0 0 12px!important;font-weight:500}
-.hero-slider .hero-slide-link{font-weight:600}
+/* HERO SLIDER — image-first category cards */
+.hero-slider{position:relative;width:100%;height:440px;overflow:hidden;background:#20291f;border:1px solid var(--line);box-shadow:0 24px 50px -30px rgba(32,41,31,.55)}
+.hero-slider .hero-slide{position:absolute!important;inset:0!important;width:100%;height:100%;display:block!important;opacity:0;visibility:hidden;pointer-events:none;overflow:hidden;text-decoration:none;color:#fff;transition:opacity .55s ease,visibility .55s ease}
+.hero-slider .hero-slide.is-active{opacity:1;visibility:visible;pointer-events:auto;z-index:2}
+.hero-slider .hero-slide-image{position:absolute!important;inset:0!important;width:100%;height:100%;background-size:cover!important;background-position:center!important;background-repeat:no-repeat!important;display:block!important;min-height:100%;filter:saturate(.96);transform:scale(1.01);transition:transform 5.5s ease}
+.hero-slider .hero-slide.is-active .hero-slide-image{transform:scale(1.06)}
+.hero-slider .hero-slide-overlay{position:absolute!important;inset:0!important;width:100%;height:100%;display:block!important;background:linear-gradient(180deg,rgba(18,25,19,.02) 10%,rgba(18,25,19,.08) 38%,rgba(18,25,19,.84) 100%)!important;z-index:2}
+.hero-slider .hero-slide-content{position:absolute!important;left:30px;right:30px;bottom:32px;z-index:4;max-width:78%;padding:18px 20px 20px;border-left:3px solid rgba(255,255,255,.82);background:linear-gradient(90deg,rgba(18,25,19,.58),rgba(18,25,19,0));text-shadow:0 2px 8px rgba(0,0,0,.25)}
+.hero-slider .hero-slide-kicker{display:block;color:#fff;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.hero-slider .hero-slide-content h2{color:#fff;margin:7px 0 4px!important;font-size:clamp(30px,4vw,48px);line-height:1.02;letter-spacing:.01em}
+.hero-slider .hero-slide-content p{color:rgba(255,255,255,.92);margin:0 0 12px!important;font-weight:500;font-size:15px}
+.hero-slider .hero-slide-link{display:inline-block;color:#fff;font-family:var(--mono);font-size:12px;font-weight:600;border-bottom:1px solid rgba(255,255,255,.8);padding-bottom:2px}
+.hero-slider .hero-slider-arrow{position:absolute!important;top:50%;z-index:8;transform:translateY(-50%);width:42px;height:42px;border:1px solid rgba(255,255,255,.65);background:rgba(18,25,19,.35);color:#fff;font-size:29px;line-height:1;display:flex;align-items:center;justify-content:center;cursor:pointer;backdrop-filter:blur(4px)}
+.hero-slider .hero-slider-prev{left:16px}.hero-slider .hero-slider-next{right:16px}
+.hero-slider .hero-slider-arrow:hover{background:rgba(18,25,19,.72)}
+.hero-slider .hero-slider-dots{position:absolute!important;z-index:9;right:28px;top:24px;display:flex;gap:8px}
+.hero-slider .hero-slider-dots button{width:8px;height:8px;border:1px solid rgba(255,255,255,.9);background:transparent;border-radius:50%;padding:0;cursor:pointer}
+.hero-slider .hero-slider-dots button.is-active{background:#fff}
 .hero-slider .hero-slide:nth-child(1) .hero-slide-image{background-image:url('https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=90&w=1400&auto=format&fit=crop')!important}
 .hero-slider .hero-slide:nth-child(2) .hero-slide-image{background-image:url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=90&w=1400&auto=format&fit=crop')!important}
 .hero-slider .hero-slide:nth-child(3) .hero-slide-image{background-image:url('https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=90&w=1400&auto=format&fit=crop')!important}
 .hero-slider .hero-slide:nth-child(4) .hero-slide-image{background-image:url('https://images.unsplash.com/photo-1499209974431-9dddcece7f88?q=90&w=1400&auto=format&fit=crop')!important}
 .hero-slider .hero-slide:nth-child(5) .hero-slide-image{background-image:url('https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?q=90&w=1400&auto=format&fit=crop')!important}
-.hero-slider .hero-slider-dots{z-index:8}
 
-@media(max-width:900px){#shop-by-category .collection-groups{grid-template-columns:1fr 1fr}#shop-by-category .collection-group:last-child{grid-column:1/-1}}
-@media(max-width:600px){#shop-by-category .collection-groups{grid-template-columns:1fr;gap:16px}#shop-by-category .collection-group:last-child{grid-column:auto}#shop-by-category .collection-group-head{padding:23px 21px 17px}#shop-by-category .collection-links{padding:3px 21px 8px}.hero-slider .hero-slide-content{max-width:88%;left:20px;right:20px;bottom:24px;padding:14px 16px 16px}.hero-slider .hero-slide-content h2{font-size:28px!important}}
+@media(max-width:900px){#shop-by-category .collection-groups{grid-template-columns:1fr 1fr}#shop-by-category .collection-group:last-child{grid-column:1/-1}.hero-slider{height:400px}}
+@media(max-width:600px){#shop-by-category .collection-groups{grid-template-columns:1fr;gap:16px}#shop-by-category .collection-group:last-child{grid-column:auto}#shop-by-category .collection-group-head{padding:23px 21px 17px}#shop-by-category .collection-links{padding:3px 21px 8px}.hero-slider{height:380px}.hero-slider .hero-slide-content{max-width:88%;left:20px;right:20px;bottom:24px;padding:14px 16px 16px}.hero-slider .hero-slide-content h2{font-size:28px!important}.hero-slider .hero-slider-dots{right:20px;top:18px}.hero-slider .hero-slider-arrow{width:36px;height:36px}}
