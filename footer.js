@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   }
 
-  // Repair the homepage Journal section and turn each topic into a real article link.
   const blogSection = Array.from(document.querySelectorAll('section')).find(section => {
     const heading = section.querySelector('h2');
     return heading && heading.textContent.trim() === 'Planning Guides & Ideas';
@@ -21,11 +20,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   blogSection.id = 'blog';
   blogSection.classList.add('blog-teaser');
 
-  // Remove the malformed text that previously appeared as: Blogclass="blog-teaser">
   Array.from(blogSection.childNodes).forEach(node => {
-    if (node.nodeType === Node.TEXT_NODE && /Blog|class\s*=/.test(node.nodeValue || '')) {
-      node.remove();
-    }
+    if (node.nodeType === Node.TEXT_NODE && /Blog|class\s*=/.test(node.nodeValue || '')) node.remove();
   });
 
   const links = [
@@ -36,6 +32,14 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   const cards = Array.from(blogSection.querySelectorAll('.blog-placeholder-grid article'));
   cards.forEach((card, index) => {
+    // Remove every visible Coming soon label from the card.
+    Array.from(card.querySelectorAll('*')).forEach(element => {
+      if (/^\s*coming soon\b/i.test(element.textContent || '')) element.remove();
+    });
+    Array.from(card.childNodes).forEach(node => {
+      if (node.nodeType === Node.TEXT_NODE && /coming soon/i.test(node.nodeValue || '')) node.remove();
+    });
+
     if (card.parentElement && card.parentElement.tagName === 'A') return;
     const link = document.createElement('a');
     link.href = links[index] || '/';
