@@ -24,47 +24,30 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (node.nodeType === Node.TEXT_NODE && /Blog|class\s*=/.test(node.nodeValue || '')) node.remove();
   });
 
-  const links = [
-    '/articles/adhd-weekly-planning-guide.html',
-    '/articles/wedding-planning-guide.html',
-    '/articles/life-reset-guide.html'
+  const articles = [
+    {label:'ADHD & PRODUCTIVITY', title:'ADHD Weekly Planning Guide: A Practical System for a Less Overwhelming Week', text:'Brain-dump, priorities, flexible time blocks, transitions and weekly resets for a more realistic planning system.', href:'/articles/adhd-weekly-planning-guide.html'},
+    {label:'WEDDING PLANNING', title:'Wedding Planning Guide: A Calm Step-by-Step Plan for Your Big Day', text:'Budget, guest list, vendors, contracts, timeline and practical details for a smoother wedding-planning journey.', href:'/articles/wedding-planning-guide.html'},
+    {label:'WELLNESS & LIFE RESET', title:'How to Reset Your Life When Everything Feels Too Much: A Practical Guide', text:'A gentle system for reducing mental clutter, simplifying routines and creating a realistic fresh start.', href:'/articles/life-reset-guide.html'},
+    {label:'PREGNANCY & BABY', title:"How to Create a Pregnancy & Baby Memory Book You'll Treasure Forever", text:'Meaningful prompts for capturing pregnancy milestones, family memories and baby’s first-year moments.', href:'/articles/pregnancy-memory-guide.html'},
+    {label:'KIDS & FAMILY', title:'50 Indoor Activities for Kids: Creative Screen-Free Ideas for Home', text:'Creative, screen-free activities for rainy days, holidays and family time.', href:'/articles/indoor-activities-kids-guide.html'}
   ];
 
-  const cards = Array.from(blogSection.querySelectorAll('.blog-placeholder-grid article'));
-  cards.forEach((card, index) => {
-    Array.from(card.querySelectorAll('*')).forEach(element => {
-      if (/^\s*coming soon\b/i.test(element.textContent || '')) element.remove();
-    });
-    Array.from(card.childNodes).forEach(node => {
-      if (node.nodeType === Node.TEXT_NODE && /coming soon/i.test(node.nodeValue || '')) node.remove();
-    });
+  const grid = blogSection.querySelector('.blog-placeholder-grid');
+  if (!grid) return;
 
-    if (card.parentElement && card.parentElement.tagName === 'A') return;
+  const existingCards = Array.from(grid.querySelectorAll('article')).slice(0,3);
+  existingCards.forEach((card,index) => {
+    const item = articles[index];
     const link = document.createElement('a');
-    link.href = links[index] || '/';
+    link.href = item.href;
     link.className = 'blog-article-link';
-    link.setAttribute('aria-label', `Read ${card.querySelector('h3')?.textContent.trim() || 'article'}`);
-    link.innerHTML = card.innerHTML;
+    link.setAttribute('aria-label', `Read ${item.title}`);
+    link.innerHTML = `<span class="blog-label">${item.label}</span><h3>${item.title}</h3><p>${item.text}</p><span class="blog-read-more">Read article →</span>`;
     card.replaceWith(link);
   });
 
-  const grid = blogSection.querySelector('.blog-placeholder-grid');
-  if (grid && !grid.querySelector('[data-extra-article]')) {
-    const extras = [
-      {
-        label: 'PREGNANCY & BABY',
-        title: "How to Create a Pregnancy & Baby Memory Book You'll Treasure Forever",
-        text: 'Meaningful prompts for capturing pregnancy milestones, family memories and baby\'s first-year moments.',
-        href: '/articles/pregnancy-memory-guide.html'
-      },
-      {
-        label: 'KIDS & FAMILY',
-        title: '50 Indoor Activities for Kids: Creative Screen-Free Ideas for Home',
-        text: 'A practical collection of creative, screen-free activities for rainy days, holidays and family time.',
-        href: '/articles/indoor-activities-kids-guide.html'
-      }
-    ];
-    extras.forEach(item => {
+  if (!grid.querySelector('[data-extra-article]')) {
+    articles.slice(3).forEach(item => {
       const card = document.createElement('a');
       card.href = item.href;
       card.className = 'blog-article-link blog-extra-card';
