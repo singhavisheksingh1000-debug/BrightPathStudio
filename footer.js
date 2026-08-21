@@ -25,14 +25,13 @@ document.addEventListener('DOMContentLoaded', async () => {
   });
 
   const links = [
-    '/articles/adhd-planning-tips.html',
-    '/articles/wedding-planning-mistakes.html',
-    '/articles/life-reset-when-overwhelmed.html'
+    '/articles/adhd-weekly-planning-guide.html',
+    '/articles/wedding-planning-guide.html',
+    '/articles/life-reset-guide.html'
   ];
 
   const cards = Array.from(blogSection.querySelectorAll('.blog-placeholder-grid article'));
   cards.forEach((card, index) => {
-    // Remove every visible Coming soon label from the card.
     Array.from(card.querySelectorAll('*')).forEach(element => {
       if (/^\s*coming soon\b/i.test(element.textContent || '')) element.remove();
     });
@@ -49,6 +48,33 @@ document.addEventListener('DOMContentLoaded', async () => {
     card.replaceWith(link);
   });
 
+  const grid = blogSection.querySelector('.blog-placeholder-grid');
+  if (grid && !grid.querySelector('[data-extra-article]')) {
+    const extras = [
+      {
+        label: 'PREGNANCY & BABY',
+        title: "How to Create a Pregnancy & Baby Memory Book You'll Treasure Forever",
+        text: 'Meaningful prompts for capturing pregnancy milestones, family memories and baby\'s first-year moments.',
+        href: '/articles/pregnancy-memory-guide.html'
+      },
+      {
+        label: 'KIDS & FAMILY',
+        title: '50 Indoor Activities for Kids: Creative Screen-Free Ideas for Home',
+        text: 'A practical collection of creative, screen-free activities for rainy days, holidays and family time.',
+        href: '/articles/indoor-activities-kids-guide.html'
+      }
+    ];
+    extras.forEach(item => {
+      const card = document.createElement('a');
+      card.href = item.href;
+      card.className = 'blog-article-link blog-extra-card';
+      card.dataset.extraArticle = 'true';
+      card.setAttribute('aria-label', `Read ${item.title}`);
+      card.innerHTML = `<span class="blog-label">${item.label}</span><h3>${item.title}</h3><p>${item.text}</p><span class="blog-read-more">Read article →</span>`;
+      grid.appendChild(card);
+    });
+  }
+
   if (!document.getElementById('blogFixStyles')) {
     const style = document.createElement('style');
     style.id = 'blogFixStyles';
@@ -57,6 +83,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       #blog.blog-teaser .blog-article-link{display:block;color:inherit;text-decoration:none;padding:4px 0;transition:transform .2s ease,opacity .2s ease}
       #blog.blog-teaser .blog-article-link:hover{transform:translateY(-3px);opacity:.82}
       #blog.blog-teaser .blog-article-link h3{text-decoration:none}
+      #blog.blog-teaser .blog-read-more{display:inline-block;margin-top:12px;font-weight:700}
       @media(max-width:800px){#blog.blog-teaser .blog-placeholder-grid{grid-template-columns:1fr;gap:28px}}
     `;
     document.head.appendChild(style);
