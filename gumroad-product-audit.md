@@ -28,8 +28,5 @@ Source: the two Gumroad Products screenshots supplied in the conversation. The a
 13. The Ultimate Halloween DIY Activity Mega Bundle | 283 Printable Pages — `https://avisheksingh3.gumroad.com/l/tgezay` — Kids + Seasonal — added.
 14. Ultimate Halloween Party Planner Printable | 130+ Pages — `https://avisheksingh3.gumroad.com/l/nqvqm` — Seasonal — added.
 
-## Already integrated elsewhere
-15. The Wedding Planner is already connected on `category-wedding.html` and was left intact.
-
 ## Scope note
-This is an audit of the 14 distinct product rows visible across the two screenshots provided by the user, plus confirmation of the Wedding product already integrated. If additional products exist below the visible screenshot area, they are not included in this audit until another screenshot or storefront listing is provided.
+This is an audit of the 14 distinct product rows visible across the two screenshots provided by the user. If additional products exist below the visible screenshot area, they are not included in this audit until another screenshot or storefront listing is provided.
