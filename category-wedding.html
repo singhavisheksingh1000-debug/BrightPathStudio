@@ -19,6 +19,15 @@
     .section-heading{max-width:720px;margin-bottom:24px}
     .section-heading h2{font-size:clamp(28px,4vw,42px);margin:8px 0}
     .section-heading p{color:var(--ink-soft);line-height:1.7}
+    .preview-shell{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(260px,.75fr);gap:26px;align-items:center}
+    .preview-card{background:var(--paper-card);border:1px solid var(--line);padding:12px;box-shadow:0 18px 45px rgba(0,0,0,.08)}
+    .preview-card img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
+    .preview-note{padding:28px;background:rgba(198,154,73,.08);border:1px solid var(--line)}
+    .preview-note h3{font-family:var(--serif);font-size:28px;margin:8px 0 12px}
+    .preview-note p{color:var(--ink-soft);line-height:1.7}
+    .preview-list{margin:18px 0 0;padding:0;list-style:none;display:grid;gap:10px}
+    .preview-list li{font-size:14px}.preview-list li::before{content:'✓';font-family:var(--mono);margin-right:9px;color:var(--accent-ink)}
+    .preview-card figcaption{font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--ink-soft);padding:12px 4px 4px;text-transform:uppercase}
     .cat-products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
     .cat-card{background:var(--paper-card);border:1px solid var(--line);padding:28px}
     .cat-card h2{font-size:26px;margin:12px 0}
@@ -39,7 +48,7 @@
     .faq details{border-bottom:1px solid var(--line);padding:18px 0}
     .faq summary{cursor:pointer;font-family:var(--serif);font-size:18px}
     .faq p{color:var(--ink-soft);line-height:1.7;max-width:760px}
-    @media(max-width:800px){.cat-products,.feature-grid,.checklist{grid-template-columns:1fr}}
+    @media(max-width:800px){.preview-shell,.cat-products,.feature-grid,.checklist{grid-template-columns:1fr}}
     @media(max-width:600px){.category-page{padding:42px 20px 64px}.cat-hero h1{font-size:44px}.hero-actions .btn{width:100%;text-align:center}}
   </style>
 </head>
@@ -60,6 +69,33 @@
         <span class="trust-pill">PRINTABLE PDF</span>
         <span class="trust-pill">INSTANT DOWNLOAD</span>
         <span class="trust-pill">BONUS PAGES</span>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="preview-title">
+      <div class="section-heading">
+        <span class="eyebrow">Product Preview</span>
+        <h2 id="preview-title">See what you're getting before you buy.</h2>
+        <p>A strong product image helps Pinterest visitors immediately understand that this is a substantial wedding-planning product, not just a single checklist.</p>
+      </div>
+      <div class="preview-shell">
+        <figure class="preview-card">
+          <img src="/assets/wedding-planner-preview.jpg" width="1400" height="788" loading="lazy" decoding="async" alt="The Ultimate Wedding Planner with 300 plus pages, checklists, budget trackers, guest and RSVP management, timelines, vendor organizer and bonus keepsake pages">
+          <figcaption>Ultimate Wedding Planner • 300+ pages • Digital download</figcaption>
+        </figure>
+        <aside class="preview-note">
+          <span class="eyebrow">At A Glance</span>
+          <h3>A complete planning system.</h3>
+          <p>Give couples a visual reason to continue from Pinterest to your product page, then make the Gumroad purchase the natural next step.</p>
+          <ul class="preview-list">
+            <li>Detailed wedding checklists</li>
+            <li>Budget trackers</li>
+            <li>Guest & RSVP management</li>
+            <li>Timelines & schedules</li>
+            <li>Vendor organizer</li>
+            <li>Bonus keepsake pages</li>
+          </ul>
+        </aside>
       </div>
     </section>
 
