@@ -1,1 +1,0 @@
-Preview assets are generated from the actual Wedding Planner PDF and should be uploaded as binary WebP files.
