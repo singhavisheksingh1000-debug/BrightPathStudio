@@ -60,3 +60,11 @@
 
 @media(max-width:900px){#shop-by-category .collection-groups{grid-template-columns:1fr 1fr}#shop-by-category .collection-group:last-child{grid-column:1/-1}.hero-slider{height:400px}}
 @media(max-width:600px){#shop-by-category .collection-groups{grid-template-columns:1fr;gap:16px}#shop-by-category .collection-group:last-child{grid-column:auto}#shop-by-category .collection-group-head{padding:23px 21px 17px}#shop-by-category .collection-links{padding:3px 21px 8px}.hero-slider{height:380px}.hero-slider .hero-slide-content{max-width:calc(100% - 40px)!important;left:20px!important;right:20px!important;bottom:24px!important}.hero-slider .hero-slide-content h2{font-size:28px!important}.hero-slider .hero-slider-dots{right:20px;top:18px}.hero-slider .hero-slider-arrow{width:36px;height:36px}.product-card .product-body{padding:19px 18px 20px}.product-card .product-media{min-height:175px}.product-card .product-body h3{font-size:19px}.product-card .product-body::before{font-size:8.5px}.product-card .product-foot{align-items:flex-start;flex-direction:column;gap:7px}.product-card .product-body .btn{padding:12px 14px}}
+
+/* HERO SLIDER REMOVED: keep the hero clean and conversion-focused. */
+.hero-redesigned .hero-grid{display:block!important}
+.hero-redesigned .hero-copy{width:100%!important;max-width:820px!important;margin:0 auto!important;text-align:center!important}
+.hero-redesigned .hero-copy .eyebrow{justify-content:center!important}
+.hero-redesigned .hero-ctas{justify-content:center!important}
+.hero-redesigned .hero-meta{text-align:center!important}
+.hero-redesigned .hero-slider{display:none!important}
