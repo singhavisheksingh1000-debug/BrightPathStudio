@@ -1,4 +1,115 @@
 document.addEventListener('DOMContentLoaded', async () => {
+  // ------------------------------------------------------------
+  // Clickable rotating announcement bar
+  // The first blog card becomes the latest-blog announcement when
+  // the blog index is updated. Product/free-offer announcements
+  // can be maintained in the announcements array below.
+  // ------------------------------------------------------------
+  const header = document.querySelector('header');
+  if (header && !document.querySelector('.site-announcement')) {
+    const announcements = [
+      {
+        type: 'NEW',
+        label: 'NEW: Ultimate Pregnancy Journal Guide',
+        text: 'What to write from the first positive test to baby’s first year',
+        href: '/blog/ultimate-pregnancy-journal-guide.html',
+        cta: 'READ THE GUIDE →'
+      },
+      {
+        type: 'FREE',
+        label: 'FREE MEMORY BOOK',
+        text: 'Start capturing pregnancy & newborn memories today',
+        href: 'https://avisheksingh3.gumroad.com/l/qgidbr',
+        cta: 'GET IT FREE →'
+      },
+      {
+        type: 'FEATURED',
+        label: '300+ PAGE WEDDING PLANNER',
+        text: 'Plan your wedding with one beautiful all-in-one planner',
+        href: '/category-wedding.html',
+        cta: 'SEE WHAT’S INSIDE →'
+      }
+    ];
+
+    const bar = document.createElement('div');
+    bar.className = 'site-announcement';
+    bar.setAttribute('aria-label', 'BrightPathStudio latest updates');
+    bar.innerHTML = `
+      <div class="site-announcement-inner">
+        <span class="site-announcement-live"><span class="site-announcement-dot"></span><span class="site-announcement-live-text">LATEST</span></span>
+        <div class="site-announcement-viewport" aria-live="polite"></div>
+        <button class="site-announcement-arrow site-announcement-prev" type="button" aria-label="Previous announcement">‹</button>
+        <button class="site-announcement-arrow site-announcement-next" type="button" aria-label="Next announcement">›</button>
+      </div>`;
+
+    header.insertAdjacentElement('afterend', bar);
+
+    const viewport = bar.querySelector('.site-announcement-viewport');
+    let current = 0;
+    let timer = null;
+
+    const render = (index) => {
+      current = (index + announcements.length) % announcements.length;
+      const item = announcements[current];
+      const external = /^https?:\/\//i.test(item.href);
+      viewport.innerHTML = `
+        <a class="site-announcement-link" href="${item.href}"${external ? ' target="_blank" rel="noopener noreferrer"' : ''}>
+          <span class="site-announcement-copy">
+            <strong>${item.label}</strong><span class="site-announcement-sep">•</span><span>${item.text}</span>
+          </span>
+          <span class="site-announcement-cta">${item.cta}</span>
+        </a>`;
+    };
+
+    const stop = () => { if (timer) { clearInterval(timer); timer = null; } };
+    const start = () => { stop(); timer = setInterval(() => render(current + 1), 5000); };
+
+    bar.querySelector('.site-announcement-next').addEventListener('click', () => { render(current + 1); start(); });
+    bar.querySelector('.site-announcement-prev').addEventListener('click', () => { render(current - 1); start(); });
+    bar.addEventListener('mouseenter', stop);
+    bar.addEventListener('mouseleave', start);
+    bar.addEventListener('focusin', stop);
+    bar.addEventListener('focusout', start);
+
+    render(0);
+    start();
+
+    if (!document.getElementById('siteAnnouncementStyles')) {
+      const style = document.createElement('style');
+      style.id = 'siteAnnouncementStyles';
+      style.textContent = `
+        .site-announcement{position:relative;z-index:99;background:var(--ink);color:var(--paper);border-bottom:1px solid rgba(198,154,73,.55);box-shadow:0 8px 22px -18px rgba(32,41,31,.6)}
+        .site-announcement-inner{min-height:46px;max-width:1180px;margin:0 auto;padding:0 28px;display:flex;align-items:center;gap:12px}
+        .site-announcement-live{display:inline-flex;align-items:center;gap:7px;flex:none;font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:#ead9a9}
+        .site-announcement-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(198,154,73,.13);animation:siteAnnouncementPulse 1.8s ease-in-out infinite}
+        .site-announcement-viewport{min-width:0;flex:1;overflow:hidden}
+        .site-announcement-link{min-height:46px;display:flex;align-items:center;justify-content:center;gap:18px;color:var(--paper);text-decoration:none;font-size:13px;line-height:1.25}
+        .site-announcement-link:hover .site-announcement-cta{text-decoration:underline;text-underline-offset:3px}
+        .site-announcement-copy{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-width:0;text-align:center}
+        .site-announcement-copy strong{font-family:var(--mono);font-size:11px;letter-spacing:.05em;color:#fff;font-weight:600;white-space:nowrap}
+        .site-announcement-copy span:not(.site-announcement-sep){color:rgba(248,249,242,.82);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+        .site-announcement-sep{color:var(--gold);flex:none}
+        .site-announcement-cta{font-family:var(--mono);font-size:10px;letter-spacing:.05em;color:#ead9a9;white-space:nowrap;flex:none}
+        .site-announcement-arrow{width:28px;height:28px;flex:none;border:1px solid rgba(248,249,242,.2);border-radius:50%;background:transparent;color:var(--paper);font-size:20px;line-height:20px;display:grid;place-items:center;padding:0;transition:background .2s ease,border-color .2s ease}
+        .site-announcement-arrow:hover{background:rgba(248,249,242,.1);border-color:rgba(248,249,242,.45)}
+        @keyframes siteAnnouncementPulse{0%,100%{opacity:.55;transform:scale(.9)}50%{opacity:1;transform:scale(1.1)}}
+        @media(max-width:700px){
+          .site-announcement-inner{padding:0 14px;gap:8px;min-height:48px}
+          .site-announcement-live-text{display:none}
+          .site-announcement-link{min-height:48px;display:block;padding:8px 2px;text-align:center}
+          .site-announcement-copy{display:block;max-width:100%;}
+          .site-announcement-copy strong{font-size:10px;display:inline}
+          .site-announcement-copy span:not(.site-announcement-sep){font-size:11px;display:inline;margin-left:5px}
+          .site-announcement-sep{display:none}
+          .site-announcement-cta{display:block;font-size:9px;margin-top:2px}
+          .site-announcement-arrow{width:24px;height:24px;font-size:17px}
+        }
+        @media(prefers-reduced-motion:reduce){.site-announcement-dot{animation:none}}
+      `;
+      document.head.appendChild(style);
+    }
+  }
+
   const mount = document.querySelector('[data-site-footer]');
   if (mount) {
     try {
