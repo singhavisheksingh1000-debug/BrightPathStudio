@@ -1,4 +1,13 @@
 document.addEventListener('DOMContentLoaded', async () => {
+  // Load the visual Shop menu on every page without duplicating header markup.
+  if (!document.querySelector('script[data-header-categories]')) {
+    const script = document.createElement('script');
+    script.src = '/header-categories.js';
+    script.defer = true;
+    script.dataset.headerCategories = 'true';
+    document.head.appendChild(script);
+  }
+
   // ------------------------------------------------------------
   // Clickable rotating announcement bar
   // ------------------------------------------------------------
@@ -9,6 +18,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       { type:'NEW', label:'NEW: Ultimate Pregnancy Journal Guide', text:'What to write from the first positive test to baby’s first year', href:'/blog/ultimate-pregnancy-journal-guide.html', cta:'READ THE GUIDE →' },
       { type:'FREE', label:'FREE MEMORY BOOK', text:'Start capturing pregnancy & newborn memories today', href:'https://avisheksingh3.gumroad.com/l/qgidbr', cta:'GET IT FREE →' },
       { type:'FEATURED', label:'300+ PAGE WEDDING PLANNER', text:'Plan your wedding with one beautiful all-in-one planner', href:'/category-wedding.html', cta:'SEE WHAT’S INSIDE →' },
+      { type:'SEASONAL', label:'🎃 HALLOWEEN COMBO BUNDLE', text:'400+ printable pages + free bonus pages for one special price', href:'https://avisheksingh3.gumroad.com/l/sgcyq', cta:'GET THE COMBO →' },
       { type:'SEASONAL', label:'🎃 HALLOWEEN ACTIVITY MEGA BUNDLE', text:'283 printable pages for kids, crafts, games, coloring & STEM', href:'https://avisheksingh3.gumroad.com/l/tgezay', cta:'SHOP HALLOWEEN →' },
       { type:'SEASONAL', label:'🎃 HALLOWEEN PARTY PLANNER', text:'130+ printable pages to plan a fun Halloween celebration', href:'https://avisheksingh3.gumroad.com/l/nqvqm', cta:'PLAN YOUR PARTY →' }
     ];
