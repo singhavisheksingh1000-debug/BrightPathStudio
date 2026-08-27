@@ -5,11 +5,12 @@ document.addEventListener('DOMContentLoaded', async () => {
   const header = document.querySelector('header');
   if (header && !document.querySelector('.site-announcement')) {
     const announcements = [
+      { type:'NEW', label:'NEW: HALLOWEEN PLANNER + DIY KIDS GUIDE', text:'25 screen-free activities + a simple plan for a magical spooky season', href:'/blog/halloween-planner-diy-kids-activities.html', cta:'READ THE GUIDE →' },
       { type:'NEW', label:'NEW: Ultimate Pregnancy Journal Guide', text:'What to write from the first positive test to baby’s first year', href:'/blog/ultimate-pregnancy-journal-guide.html', cta:'READ THE GUIDE →' },
       { type:'FREE', label:'FREE MEMORY BOOK', text:'Start capturing pregnancy & newborn memories today', href:'https://avisheksingh3.gumroad.com/l/qgidbr', cta:'GET IT FREE →' },
       { type:'FEATURED', label:'300+ PAGE WEDDING PLANNER', text:'Plan your wedding with one beautiful all-in-one planner', href:'/category-wedding.html', cta:'SEE WHAT’S INSIDE →' },
       { type:'SEASONAL', label:'🎃 HALLOWEEN ACTIVITY MEGA BUNDLE', text:'283 printable pages for kids, crafts, games, coloring & STEM', href:'https://avisheksingh3.gumroad.com/l/tgezay', cta:'SHOP HALLOWEEN →' },
-      { type:'SEASONAL', label:'🎃 HALLOWEEN PARTY PLANNER', text:'130+ printable pages to plan a fun Halloween celebration', href:'https://avisheksingh3.gumroad.com/l/nyqrm', cta:'PLAN YOUR PARTY →' }
+      { type:'SEASONAL', label:'🎃 HALLOWEEN PARTY PLANNER', text:'130+ printable pages to plan a fun Halloween celebration', href:'https://avisheksingh3.gumroad.com/l/nqvqm', cta:'PLAN YOUR PARTY →' }
     ];
 
     const bar = document.createElement('div');
