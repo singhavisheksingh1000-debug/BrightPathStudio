@@ -1,32 +1,14 @@
 {
-  "updatedAt": "2026-08-27T06:23:39.544699+00:00",
+  "updatedAt": "2026-08-27T06:29:12.968607+00:00",
   "posts": [
     {
-      "title": "The Ultimate Pregnancy Journal Guide: What to Write From the First Positive Test to Baby's First Year | BrightPathStudio",
-      "description": "Learn what to write in a pregnancy journal from the first positive test through baby",
-      "category": "Pregnancy & Baby",
-      "image": "https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=1800&q=85",
-      "url": "/blog/ultimate-pregnancy-journal-guide.html",
-      "date": "2026-08-25T14:09:07+00:00",
-      "readTime": 9
-    },
-    {
-      "title": "Ultimate Halloween Party Planning Checklist | BrightPathStudio",
-      "description": "Use this Halloween party planning checklist to organize guests, theme, decorations, food, games, costumes, music, safety and cleanup.",
+      "title": "Halloween Planner + 25 DIY Kids Activities for a Magical Spooky Season | BrightPathStudio",
+      "description": "Plan a memorable Halloween with a practical Halloween planner, budget-friendly party checklist, 25 DIY kids activities, screen-free crafts and printable ideas from BrightPathStudio.",
       "category": "Halloween",
       "image": "https://images.unsplash.com/photo-1543589077-47d81606c1bf?auto=format&fit=crop&w=1800&q=90",
-      "url": "/blog/halloween-party-checklist.html",
-      "date": "2026-08-18T19:09:01+00:00",
-      "readTime": 3
-    },
-    {
-      "title": "50 Indoor Activities for Kids | BrightPathStudio",
-      "description": "50 simple indoor activities for kids including creative projects, movement games, learning ideas, pretend play and quiet activities for home.",
-      "category": "Kids",
-      "image": "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=1800&q=90",
-      "url": "/blog/kids-indoor-activities.html",
-      "date": "2026-08-18T19:08:51+00:00",
-      "readTime": 3
+      "url": "/blog/halloween-planner-diy-kids-activities.html",
+      "date": "2026-08-27T06:29:03+00:00",
+      "readTime": 8
     },
     {
       "title": "Pregnancy Journal Ideas You'll Treasure Forever | BrightPathStudio",
@@ -34,25 +16,7 @@
       "category": "Pregnancy & Baby",
       "image": "https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=1800&q=90",
       "url": "/blog/pregnancy-journal-ideas.html",
-      "date": "2026-08-18T19:08:38+00:00",
-      "readTime": 3
-    },
-    {
-      "title": "How to Reset Your Life When Everything Feels Too Much | BrightPathStudio",
-      "description": "A gentle life reset guide for clearing mental clutter, choosing priorities, simplifying routines and creating a manageable next step.",
-      "category": "Life Reset",
-      "image": "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=1800&q=90",
-      "url": "/blog/life-reset-guide.html",
-      "date": "2026-08-18T19:08:26+00:00",
-      "readTime": 3
-    },
-    {
-      "title": "25 Wedding Planning Mistakes Every Bride Should Avoid | BrightPathStudio",
-      "description": "Avoid 25 common wedding planning mistakes involving budgets, timelines, vendors, guest lists, contracts, logistics and the final week before the wedding.",
-      "category": "Wedding Planning",
-      "image": "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1800&q=90",
-      "url": "/blog/wedding-planning-mistakes.html",
-      "date": "2026-08-18T19:08:16+00:00",
+      "date": "2026-08-27T06:23:39+00:00",
       "readTime": 3
     },
     {
@@ -61,7 +25,52 @@
       "category": "ADHD & Productivity",
       "image": "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1800&q=90",
       "url": "/blog/adhd-planning-tips.html",
-      "date": "2026-08-18T19:02:55+00:00",
+      "date": "2026-08-27T06:23:39+00:00",
+      "readTime": 3
+    },
+    {
+      "title": "50 Indoor Activities for Kids | BrightPathStudio",
+      "description": "50 simple indoor activities for kids including creative projects, movement games, learning ideas, pretend play and quiet activities for home.",
+      "category": "Kids",
+      "image": "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=1800&q=90",
+      "url": "/blog/kids-indoor-activities.html",
+      "date": "2026-08-27T06:23:39+00:00",
+      "readTime": 3
+    },
+    {
+      "title": "How to Reset Your Life When Everything Feels Too Much | BrightPathStudio",
+      "description": "A gentle life reset guide for clearing mental clutter, choosing priorities, simplifying routines and creating a manageable next step.",
+      "category": "Life Reset",
+      "image": "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=1800&q=90",
+      "url": "/blog/life-reset-guide.html",
+      "date": "2026-08-27T06:23:39+00:00",
+      "readTime": 3
+    },
+    {
+      "title": "Ultimate Halloween Party Planning Checklist | BrightPathStudio",
+      "description": "Use this Halloween party planning checklist to organize guests, theme, decorations, food, games, costumes, music, safety and cleanup.",
+      "category": "Halloween",
+      "image": "https://images.unsplash.com/photo-1543589077-47d81606c1bf?auto=format&fit=crop&w=1800&q=90",
+      "url": "/blog/halloween-party-checklist.html",
+      "date": "2026-08-27T06:23:39+00:00",
+      "readTime": 3
+    },
+    {
+      "title": "The Ultimate Pregnancy Journal Guide: What to Write From the First Positive Test to Baby's First Year | BrightPathStudio",
+      "description": "Learn what to write in a pregnancy journal from the first positive test through baby",
+      "category": "Pregnancy & Baby",
+      "image": "https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=1800&q=85",
+      "url": "/blog/ultimate-pregnancy-journal-guide.html",
+      "date": "2026-08-27T06:23:39+00:00",
+      "readTime": 9
+    },
+    {
+      "title": "25 Wedding Planning Mistakes Every Bride Should Avoid | BrightPathStudio",
+      "description": "Avoid 25 common wedding planning mistakes involving budgets, timelines, vendors, guest lists, contracts, logistics and the final week before the wedding.",
+      "category": "Wedding Planning",
+      "image": "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1800&q=90",
+      "url": "/blog/wedding-planning-mistakes.html",
+      "date": "2026-08-27T06:23:39+00:00",
       "readTime": 3
     }
   ]
