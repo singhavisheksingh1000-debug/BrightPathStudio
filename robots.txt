@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://brightpathstudio.vercel.app/sitemap.xml
+Sitemap: https://brightpathstudio.shop/sitemap.xml
