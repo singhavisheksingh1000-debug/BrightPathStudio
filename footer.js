@@ -107,6 +107,29 @@ document.addEventListener('DOMContentLoaded', async () => {
     catch (error) { console.warn('BrightPathStudio footer could not be loaded.', error); }
   }
 
+  // Add the latest free Gumroad product to the homepage Free Resources grid.
+  const freeSection = document.getElementById('free-resources');
+  if (freeSection && !freeSection.querySelector('[data-new-free-product]')) {
+    const grid = freeSection.querySelector('.products-grid');
+    if (grid) {
+      const card = document.createElement('article');
+      card.className = 'product-card product-card-free';
+      card.dataset.newFreeProduct = 'true';
+      card.innerHTML = `
+        <div class="product-media" style="--tab-c:var(--c-wellness); --img:url('https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=85&w=900&auto=format&fit=crop');">
+          <span class="badge badge-free">NEW • FREE DOWNLOAD</span>
+          <span class="product-cat">FREE RESOURCE</span>
+        </div>
+        <div class="product-body">
+          <h3>New BrightPathStudio Free PDF</h3>
+          <p>🎁 Download the newest free BrightPathStudio resource and explore a practical printable designed to help you plan, organize, or remember what matters.</p>
+          <div class="product-foot"><span class="rating">★★★★★</span><span class="price">FREE</span></div>
+          <a class="btn btn-primary" href="https://avisheksingh3.gumroad.com/l/vwajjp" target="_blank" rel="noopener noreferrer">GET IT FREE →</a>
+        </div>`;
+      grid.appendChild(card);
+    }
+  }
+
   const blogSection = Array.from(document.querySelectorAll('section')).find(section => { const heading=section.querySelector('h2'); return heading && heading.textContent.trim()==='Planning Guides & Ideas'; });
   if (!blogSection) return;
   blogSection.id='blog'; blogSection.classList.add('blog-teaser');
