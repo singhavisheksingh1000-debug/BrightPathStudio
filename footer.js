@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           <span class="product-cat">FREE RESOURCE</span>
         </div>
         <div class="product-body">
-          <h3>New BrightPathStudio Free PDF</h3>
+          <h3>Free Halloween Party Pack 🎃 for Kids</h3>
           <p>🎁 Download the newest free BrightPathStudio resource and explore a practical printable designed to help you plan, organize, or remember what matters.</p>
           <div class="product-foot"><span class="rating">★★★★★</span><span class="price">FREE</span></div>
           <a class="btn btn-primary" href="https://avisheksingh3.gumroad.com/l/vwajjp" target="_blank" rel="noopener noreferrer">GET IT FREE →</a>
