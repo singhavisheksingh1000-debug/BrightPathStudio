@@ -98,3 +98,23 @@
 @media(max-width:900px){.hero-redesigned .hero-copy{text-align:center!important}.hero-redesigned .hero-copy .eyebrow,.hero-redesigned .hero-ctas{justify-content:center!important}.hero-redesigned .hero-meta{text-align:center!important}}
 
 @media(max-width:600px){#shop-by-category .collection-links a{grid-template-columns:54px minmax(0,1fr) auto;column-gap:12px;padding:13px 0}#shop-by-category .collection-thumb{width:54px;height:54px}#shop-by-category .collection-copy strong{font-size:16px}}
+
+/* Full-bleed, high-impact homepage hero */
+.hero-redesigned{width:100%;max-width:none;padding:0;margin:0;display:block}
+.hero-redesigned .hero-fullscreen{width:100%;margin:0}
+.hero-redesigned .hero-slider{width:100%;height:min(78vh,760px);min-height:560px;border:0;border-radius:0;box-shadow:none}
+.hero-redesigned .hero-slide-image{background-size:cover!important;background-position:center!important}
+.hero-redesigned .hero-slide-content{left:7vw!important;right:auto!important;bottom:9vh!important;max-width:min(720px,72vw)!important}
+.hero-redesigned .hero-slide-content h2{font-size:clamp(42px,6vw,82px)!important;line-height:.98!important;margin:10px 0 8px!important}
+.hero-redesigned .hero-slide-content p{font-size:clamp(16px,1.5vw,21px)!important;margin-bottom:16px!important}
+.hero-redesigned .hero-slide-overlay{background:linear-gradient(90deg,rgba(20,25,20,.72) 0%,rgba(20,25,20,.32) 48%,rgba(20,25,20,.08) 100%),linear-gradient(180deg,rgba(20,25,20,.05) 35%,rgba(20,25,20,.48) 100%)!important}
+@media(max-width:900px){
+  .hero-redesigned .hero-slider{height:72vh;min-height:520px}
+  .hero-redesigned .hero-slide-content{left:6vw!important;right:6vw!important;bottom:9vh!important;max-width:88vw!important}
+}
+@media(max-width:600px){
+  .hero-redesigned .hero-slider{height:78vh;min-height:500px}
+  .hero-redesigned .hero-slide-content{left:22px!important;right:22px!important;bottom:72px!important;max-width:calc(100% - 44px)!important}
+  .hero-redesigned .hero-slide-content h2{font-size:clamp(34px,11vw,52px)!important}
+  .hero-redesigned .hero-slide-content p{font-size:15px!important}
+}
