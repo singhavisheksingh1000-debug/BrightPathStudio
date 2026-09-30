@@ -1,23 +1,50 @@
 {
-  "updatedAt": "2026-09-30T05:34:30.018008+00:00",
+  "updatedAt": "2026-09-30T07:27:20.619032+00:00",
   "posts": [
     {
-      "title": "How to Reset Your Life When Everything Feels Too Much | BrightPathStudio",
+      "title": "Ultimate Pregnancy Journal Guide | BrightPathStudio",
+      "description": "Learn what to write in a pregnancy journal from the first positive test through baby",
+      "category": "Pregnancy & Baby",
+      "image": "https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=1800&q=85",
+      "url": "/blog/ultimate-pregnancy-journal-guide.html",
+      "date": "2026-09-30T07:25:56+00:00",
+      "readTime": 9
+    },
+    {
+      "title": "Pregnancy Journal Ideas | BrightPathStudio",
+      "description": "Meaningful pregnancy journal prompts for documenting milestones, emotions, memories, hopes, appointments and the little moments you",
+      "category": "Pregnancy & Baby",
+      "image": "https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=1800&q=90",
+      "url": "/blog/pregnancy-journal-ideas.html",
+      "date": "2026-09-30T07:25:53+00:00",
+      "readTime": 3
+    },
+    {
+      "title": "How to Reset Your Life | BrightPathStudio",
       "description": "A gentle life reset guide for clearing mental clutter, choosing priorities, simplifying routines and creating a manageable next step.",
       "category": "Life Reset",
       "image": "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=1800&q=90",
       "url": "/blog/life-reset-guide.html",
-      "date": "2026-09-30T05:34:18+00:00",
+      "date": "2026-09-30T07:25:50+00:00",
       "readTime": 3
     },
     {
-      "title": "Halloween Planner + 25 DIY Kids Activities for a Magical Spooky Season | BrightPathStudio",
-      "description": "Plan a memorable Halloween with a practical Halloween planner, budget-friendly party checklist, 25 DIY kids activities, screen-free crafts and printable ideas from BrightPathStudio.",
+      "title": "Halloween Planner + 25 Kids Activities | BrightPathStudio",
+      "description": "Plan Halloween with a practical party planner, budget checklist, 25 DIY kids activities, screen-free crafts and printable ideas.",
       "category": "Halloween",
       "image": "https://images.unsplash.com/photo-1543589077-47d81606c1bf?auto=format&fit=crop&w=1800&q=90",
       "url": "/blog/halloween-planner-diy-kids-activities.html",
-      "date": "2026-09-30T05:34:18+00:00",
+      "date": "2026-09-30T07:25:47+00:00",
       "readTime": 8
+    },
+    {
+      "title": "25 Halloween Party Games for Kids | BrightPathStudio",
+      "description": "Discover 25 easy Halloween party games for kids, printable activities, classroom ideas, scavenger hunts, bingo and screen-free family fun.",
+      "category": "Halloween",
+      "image": "https://images.unsplash.com/photo-1509557965875-b88c97052f0e?auto=format&fit=crop&w=1800&q=90",
+      "url": "/blog/halloween-party-games-for-kids.html",
+      "date": "2026-09-30T07:25:44+00:00",
+      "readTime": 7
     },
     {
       "title": "Ultimate Halloween Party Planning Checklist | BrightPathStudio",
@@ -38,29 +65,11 @@
       "readTime": 3
     },
     {
-      "title": "The Ultimate Pregnancy Journal Guide: What to Write From the First Positive Test to Baby's First Year | BrightPathStudio",
-      "description": "Learn what to write in a pregnancy journal from the first positive test through baby",
-      "category": "Pregnancy & Baby",
-      "image": "https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=1800&q=85",
-      "url": "/blog/ultimate-pregnancy-journal-guide.html",
-      "date": "2026-09-30T05:34:18+00:00",
-      "readTime": 9
-    },
-    {
       "title": "25 Wedding Planning Mistakes Every Bride Should Avoid | BrightPathStudio",
       "description": "Avoid 25 common wedding planning mistakes involving budgets, timelines, vendors, guest lists, contracts, logistics and the final week before the wedding.",
       "category": "Wedding Planning",
       "image": "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1800&q=90",
       "url": "/blog/wedding-planning-mistakes.html",
-      "date": "2026-09-30T05:34:18+00:00",
-      "readTime": 3
-    },
-    {
-      "title": "Pregnancy Journal Ideas You'll Treasure Forever | BrightPathStudio",
-      "description": "Meaningful pregnancy journal prompts for documenting milestones, emotions, memories, hopes, appointments and the little moments you",
-      "category": "Pregnancy & Baby",
-      "image": "https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=1800&q=90",
-      "url": "/blog/pregnancy-journal-ideas.html",
       "date": "2026-09-30T05:34:18+00:00",
       "readTime": 3
     },
@@ -72,15 +81,6 @@
       "url": "/blog/adhd-planning-tips.html",
       "date": "2026-09-30T05:34:18+00:00",
       "readTime": 3
-    },
-    {
-      "title": "25 Halloween Party Games for Kids 🎃 Easy & Fun Ideas | BrightPathStudio",
-      "description": "Discover 25 easy Halloween party games for kids, printable Halloween activities, family games, classroom ideas, scavenger hunts, bingo and screen-free fun. Try BrightPathStudio free resources before buying.",
-      "category": "Halloween",
-      "image": "https://images.unsplash.com/photo-1509557965875-b88c97052f0e?auto=format&fit=crop&w=1800&q=90",
-      "url": "/blog/halloween-party-games-for-kids.html",
-      "date": "2026-09-20T17:06:35+00:00",
-      "readTime": 7
     }
   ]
 }
