@@ -103,7 +103,7 @@
       link.className='hero-slide'+(index===0?' active is-active':'');
       link.href=slide.href;
       link.setAttribute('aria-label',`Explore ${slide.title}`);
-      link.innerHTML=`<img class="hero-slide-photo" src="${slide.image}" alt="${slide.alt}" loading="${index===0?'eager':'lazy'}"><div class="hero-slide-shade"></div><div class="hero-slide-content"><span class="hero-slide-kicker">${slide.kicker}</span><strong>${slide.title}</strong><span>${slide.subtitle}</span><em>Explore collection →</em></div>`;
+      link.innerHTML=`<img class="hero-slide-photo" width="1600" height="1000" src="${slide.image}" alt="${slide.alt}" loading="${index===0?'eager':'lazy'}"><div class="hero-slide-shade"></div><div class="hero-slide-content"><span class="hero-slide-kicker">${slide.kicker}</span><strong>${slide.title}</strong><span>${slide.subtitle}</span><em>Explore collection →</em></div>`;
       slidesContainer.appendChild(link);
 
       const dot=document.createElement('button');
@@ -182,7 +182,7 @@
       {category:'Wellness',title:'Ultimate Life Reset Planner for Women',desc:'Reset your routines, priorities and goals with guided pages designed for a clearer, more intentional life.',image:'https://images.unsplash.com/photo-1499209974431-9dddcece7f88?q=85&w=1000&auto=format&fit=crop',url:'https://avisheksingh3.gumroad.com/l/3ojr5q',badge:''}
     ];
     section.className='featured-section best-sellers-section';
-    section.innerHTML=`<div class="wrap"><div class="best-sellers-heading"><span class="eyebrow">BEST SELLERS</span><h2>Tools people actually use.</h2><p>Start with our most popular planners, journals, and printable tools.</p></div><div class="best-sellers-grid">${products.map(p=>`<article class="best-seller-card"><a class="best-seller-media" href="${p.url}" target="_blank" rel="noopener noreferrer"><img src="${p.image}" alt="${p.title}" loading="lazy">${p.badge?`<span class="best-seller-badge">${p.badge}</span>`:''}<span class="best-seller-category">${p.category}</span></a><div class="best-seller-body"><span class="best-seller-type">DIGITAL PRODUCT</span><h3>${p.title}</h3><p>${p.desc}</p><div class="best-seller-meta"><span class="stars" aria-label="Five star rating">★★★★★</span><span class="price-label">View price</span></div><a class="best-seller-cta" href="${p.url}" target="_blank" rel="noopener noreferrer">View Product →</a></div></article>`).join('')}</div></div>`;
+    section.innerHTML=`<div class="wrap"><div class="best-sellers-heading"><span class="eyebrow">BEST SELLERS</span><h2>Tools people actually use.</h2><p>Start with our most popular planners, journals, and printable tools.</p></div><div class="best-sellers-grid">${products.map(p=>`<article class="best-seller-card"><a class="best-seller-media" href="${p.url}" target="_blank" rel="noopener noreferrer"><img width="1000" height="750" src="${p.image}" alt="${p.title}" loading="lazy">${p.badge?`<span class="best-seller-badge">${p.badge}</span>`:''}<span class="best-seller-category">${p.category}</span></a><div class="best-seller-body"><span class="best-seller-type">DIGITAL PRODUCT</span><h3>${p.title}</h3><p>${p.desc}</p><div class="best-seller-meta"><span class="stars" aria-label="Five star rating">★★★★★</span><span class="price-label">View price</span></div><a class="best-seller-cta" href="${p.url}" target="_blank" rel="noopener noreferrer">View Product →</a></div></article>`).join('')}</div></div>`;
   }
 
   const bestSellerStyle=document.createElement('style');
