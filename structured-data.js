@@ -6,16 +6,16 @@
     '@graph': [
       {
         '@type': 'Organization',
-        '@id': 'https://brightpathstudio.vercel.app/#organization',
+        '@id': 'https://brightpathstudio.shop/#organization',
         name: 'BrightPathStudio',
-        url: 'https://brightpathstudio.vercel.app/'
+        url: 'https://brightpathstudio.shop/'
       },
       {
         '@type': 'WebSite',
-        '@id': 'https://brightpathstudio.vercel.app/#website',
-        url: 'https://brightpathstudio.vercel.app/',
+        '@id': 'https://brightpathstudio.shop/#website',
+        url: 'https://brightpathstudio.shop/',
         name: 'BrightPathStudio',
-        publisher: { '@id': 'https://brightpathstudio.vercel.app/#organization' }
+        publisher: { '@id': 'https://brightpathstudio.shop/#organization' }
       }
     ]
   };
@@ -36,8 +36,8 @@
     data['@graph'].push({
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://brightpathstudio.vercel.app/' },
-        { '@type': 'ListItem', position: 2, name: labels[path], item: 'https://brightpathstudio.vercel.app' + path }
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://brightpathstudio.shop/' },
+        { '@type': 'ListItem', position: 2, name: labels[path], item: 'https://brightpathstudio.shop' + path }
       ]
     });
   }
