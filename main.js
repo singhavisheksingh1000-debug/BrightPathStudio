@@ -29,6 +29,12 @@
   }catch(e){}
 
   function saveCart(){ try{ localStorage.setItem('bps_cart', JSON.stringify(cart)); }catch(e){} }
+  function findCheckoutUrl(btn){ return btn?.dataset?.url || btn?.dataset?.gumroad || ''; }
+  function checkoutCart(){
+    if(!cart.length){ showToast('Your bag is empty'); return; }
+    if(cart.length===1 && cart[0].url){ window.open(cart[0].url,'_blank','noopener,noreferrer'); return; }
+    if(cart.length>1){ showToast('Choose Checkout beside a product'); }
+  }
   function showToast(msg){ if(!toast) return; toast.textContent=msg; toast.classList.add('show'); clearTimeout(toastTimer); toastTimer=setTimeout(()=>toast.classList.remove('show'),2000); }
   function updateBagCount(){ if(!bagCount)return; if(cart.length===0){bagCount.hidden=true;}else{bagCount.hidden=false;bagCount.textContent=cart.length;} }
   function renderCart(){
@@ -47,12 +53,15 @@
   if(menuClose)menuClose.addEventListener('click',closeMenu);
   if(bagBtn)bagBtn.addEventListener('click',openCart);
   if(cartClose)cartClose.addEventListener('click',closeCart);
+  const cartCheckout=document.querySelector('.cart-foot .btn-primary');
+  if(cartCheckout){cartCheckout.type='button';cartCheckout.addEventListener('click',checkoutCart);}
   if(overlay)overlay.addEventListener('click',()=>{closeMenu();closeCart();});
 
   document.addEventListener('click',(e)=>{
     const btn=e.target.closest('.add-btn'); if(!btn)return; e.preventDefault();
     const card=btn.closest('.product-card'); const title=btn.dataset.title||(card&&card.querySelector('h3')?card.querySelector('h3').textContent:'Product'); const price=parseFloat(btn.dataset.price||'0')||0; const media=card?card.querySelector('.product-media'):null; const color=media?media.style.getPropertyValue('--tab-c'):'';
-    cart.push({title,price,color:color||'var(--accent)'}); saveCart(); updateBagCount(); renderCart(); showToast('Added to bag');
+    const url=findCheckoutUrl(btn) || (card&&[...card.querySelectorAll('a')].find(a=>/gumroad\.com/.test(a.href))?.href) || '';
+    cart.push({title,price,color:color||'var(--accent)',url}); saveCart(); updateBagCount(); renderCart(); showToast('Added to bag');
   });
 
   const filterChips=document.querySelectorAll('.filter-chip'); const blogCards=document.querySelectorAll('.blog-card');
@@ -65,7 +74,22 @@
   if(cookieDecline)cookieDecline.addEventListener('click',()=>{setCookieConsent('declined');if(cookieBanner)cookieBanner.classList.remove('show');});
 
   const nform=document.getElementById('newsletterForm'); const nstatus=document.getElementById('nstatus');
-  if(nform)nform.addEventListener('submit',(e)=>{e.preventDefault();if(nstatus)nstatus.textContent='Thank you for subscribing!';nform.reset();setTimeout(()=>{if(nstatus)nstatus.textContent='';},3000);});
+  if(nform)nform.addEventListener('submit',async(e)=>{
+    e.preventDefault();
+    const email=(nform.querySelector('input[type="email"]')||{}).value?.trim();
+    if(!email)return;
+    if(nstatus)nstatus.textContent='Joining the list…';
+    try{
+      const res=await fetch('/api/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,source:window.location.pathname})});
+      const data=await res.json().catch(()=>({}));
+      if(!res.ok)throw new Error(data.error||'Subscription failed');
+      if(nstatus)nstatus.textContent='You’re in! Watch your inbox for BrightPathStudio updates.';
+      nform.reset();
+    }catch(err){
+      if(nstatus)nstatus.textContent='Please try again in a moment.';
+    }
+    setTimeout(()=>{if(nstatus)nstatus.textContent='';},5000);
+  });
   const cform=document.getElementById('contactForm'); const cstatus=document.getElementById('cstatus');
   if(cform)cform.addEventListener('submit',(e)=>{e.preventDefault();if(cstatus)cstatus.textContent='Message sent! We will reply soon.';cform.reset();setTimeout(()=>{if(cstatus)cstatus.textContent='';},3500);});
 
