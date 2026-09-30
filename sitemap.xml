@@ -1,64 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <url>
-    <loc>https://brightpathstudio.shop/</loc>
-  </url>
-
-  <url>
-    <loc>https://brightpathstudio.shop/lander</loc>
-  </url>
-
-  <url>
-    <loc>https://brightpathstudio.shop/category-adhd.html</loc>
-  </url>
-
-  <url>
-    <loc>https://brightpathstudio.shop/category-kids.html</loc>
-  </url>
-
-  <url>
-    <loc>https://brightpathstudio.shop/category-pregnancy-baby.html</loc>
-  </url>
-
-  <url>
-    <loc>https://brightpathstudio.shop/category-seasonal.html</loc>
-  </url>
-
-  <url>
-    <loc>https://brightpathstudio.shop/category-students-career.html</loc>
-  </url>
-
-  <url>
-    <loc>https://brightpathstudio.shop/category-wedding.html</loc>
-  </url>
-
-  <url>
-    <loc>https://brightpathstudio.shop/category-wellness.html</loc>
-  </url>
-
-  <url>
-    <loc>https://brightpathstudio.shop/halloween-combo.html</loc>
-  </url>
-
-  <url>
-    <loc>https://brightpathstudio.shop/privacy-policy.html</loc>
-  </url>
-
-  <url>
-    <loc>https://brightpathstudio.shop/cookie-policy.html</loc>
-  </url>
-
-  <url>
-    <loc>https://brightpathstudio.shop/refund-policy.html</loc>
-  </url>
-
-  <url>
-    <loc>https://brightpathstudio.shop/terms-of-service.html</loc>
-  </url>
-
-  <url>
-    <loc>https://brightpathstudio.shop/disclaimer.html</loc>
-  </url>
-
+  <url><loc>https://brightpathstudio.shop/</loc></url>
+  <url><loc>https://brightpathstudio.shop/category-adhd.html</loc></url>
+  <url><loc>https://brightpathstudio.shop/category-kids.html</loc></url>
+  <url><loc>https://brightpathstudio.shop/category-pregnancy-baby.html</loc></url>
+  <url><loc>https://brightpathstudio.shop/category-seasonal.html</loc></url>
+  <url><loc>https://brightpathstudio.shop/category-students-career.html</loc></url>
+  <url><loc>https://brightpathstudio.shop/category-wedding.html</loc></url>
+  <url><loc>https://brightpathstudio.shop/category-wellness.html</loc></url>
+  <url><loc>https://brightpathstudio.shop/halloween-combo.html</loc></url>
+  <url><loc>https://brightpathstudio.shop/blog/</loc></url>
+  <url><loc>https://brightpathstudio.shop/blog/adhd-planning-tips.html</loc></url>
+  <url><loc>https://brightpathstudio.shop/blog/adhd-productivity/adhd-weekly-planning-low-overwhelm-system/</loc></url>
+  <url><loc>https://brightpathstudio.shop/blog/halloween-party-checklist.html</loc></url>
+  <url><loc>https://brightpathstudio.shop/blog/halloween-party-games-for-kids.html</loc></url>
+  <url><loc>https://brightpathstudio.shop/blog/halloween-planner-diy-kids-activities.html</loc></url>
+  <url><loc>https://brightpathstudio.shop/blog/kids-indoor-activities.html</loc></url>
+  <url><loc>https://brightpathstudio.shop/blog/life-reset-guide.html</loc></url>
+  <url><loc>https://brightpathstudio.shop/blog/pregnancy-journal-ideas.html</loc></url>
+  <url><loc>https://brightpathstudio.shop/blog/ultimate-pregnancy-journal-guide.html</loc></url>
+  <url><loc>https://brightpathstudio.shop/blog/wedding-planning-mistakes.html</loc></url>
+  <url><loc>https://brightpathstudio.shop/articles/adhd-planning-tips.html</loc></url>
+  <url><loc>https://brightpathstudio.shop/articles/adhd-weekly-planning-guide.html</loc></url>
+  <url><loc>https://brightpathstudio.shop/articles/indoor-activities-kids-guide.html</loc></url>
+  <url><loc>https://brightpathstudio.shop/articles/life-reset-guide.html</loc></url>
+  <url><loc>https://brightpathstudio.shop/articles/life-reset-when-overwhelmed.html</loc></url>
+  <url><loc>https://brightpathstudio.shop/articles/pregnancy-memory-guide.html</loc></url>
+  <url><loc>https://brightpathstudio.shop/articles/wedding-planning-guide.html</loc></url>
+  <url><loc>https://brightpathstudio.shop/articles/wedding-planning-mistakes.html</loc></url>
+  <url><loc>https://brightpathstudio.shop/privacy-policy.html</loc></url>
+  <url><loc>https://brightpathstudio.shop/cookie-policy.html</loc></url>
+  <url><loc>https://brightpathstudio.shop/refund-policy.html</loc></url>
+  <url><loc>https://brightpathstudio.shop/terms-of-service.html</loc></url>
+  <url><loc>https://brightpathstudio.shop/disclaimer.html</loc></url>
 </urlset>
