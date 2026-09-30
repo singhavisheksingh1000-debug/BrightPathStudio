@@ -41,7 +41,7 @@
     if(!cartItems||!cartTotal)return;
     if(cart.length===0){cartItems.innerHTML='<p class="cart-empty">Your bag is empty.</p>';cartTotal.textContent='$0.00';return;}
     let total=0;
-    cartItems.innerHTML=cart.map((item,idx)=>{total+=item.price;return `<div class="cart-row"><div class="thumb" style="background:${item.color||'var(--accent)'}"></div><div class="meta"><h4>${item.title}</h4><span>$${item.price.toFixed(2)}</span></div><button class="rm" data-idx="${idx}" aria-label="Remove ${item.title}">×</button></div>`;}).join('');
+    cartItems.innerHTML=cart.map((item,idx)=>{total+=item.price;return `<div class="cart-row"><div class="thumb" style="background:${item.color||'var(--accent)'}"></div><div class="meta"><h4>${item.title}</h4><span>${item.price.toFixed(2)}</span>${item.url?`<a class="cart-checkout-link" href="${item.url}" target="_blank" rel="noopener noreferrer">Checkout →</a>`:''}</div><button class="rm" data-idx="${idx}" aria-label="Remove ${item.title}">×</button></div>`;}).join('');
     cartTotal.textContent='$'+total.toFixed(2);
     cartItems.querySelectorAll('.rm').forEach(btn=>btn.addEventListener('click',()=>{const idx=parseInt(btn.getAttribute('data-idx'),10);cart.splice(idx,1);saveCart();updateBagCount();renderCart();showToast('Removed from bag');}));
   }
