@@ -451,3 +451,27 @@
 .how-step:hover .how-number{background:var(--plum);color:#fff8ed;border-color:var(--plum)}
 @media(max-width:800px){.how-steps{grid-template-columns:repeat(2,1fr)}.how-step:nth-child(2){border-right:0}.how-step:nth-child(-n+2){border-bottom:1px solid var(--line)}.how-step:nth-child(2)::after{display:none}.how-step:nth-child(3)::after{display:none}}
 @media(max-width:600px){.how-it-works-section{padding:64px 0}.how-steps{grid-template-columns:1fr}.how-step{min-height:auto;padding:23px 20px}.how-step:not(:last-child){border-right:0;border-bottom:1px solid var(--line)}.how-step::after{display:none}.how-number{margin-bottom:14px}}
+
+/* Planning Guides — editorial + conversion treatment */
+.guides-head{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:32px}
+.guides-head>div{max-width:720px}
+.guides-head h2{font-size:clamp(32px,4vw,48px);margin:10px 0 8px}
+.guides-head p{margin:0;color:var(--ink-soft);font-size:14px;line-height:1.65}
+.guides-view-all{font-family:var(--mono);font-size:10px;letter-spacing:.08em;font-weight:800;color:var(--plum);text-decoration:none;border-bottom:1px solid rgba(75,41,79,.35);padding-bottom:5px;white-space:nowrap}
+.blog-placeholder-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.guide-card{position:relative;min-height:340px;padding:25px 24px 22px;background:var(--paper-card);border:1px solid var(--line);display:flex;flex-direction:column;box-shadow:0 16px 35px -32px rgba(32,41,31,.6);transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+.guide-card:hover{transform:translateY(-5px);box-shadow:0 25px 45px -30px rgba(32,41,31,.7);border-color:rgba(75,41,79,.3)}
+.guide-card-featured{background:linear-gradient(145deg,#fff9ef,#f4e9dc);border-color:rgba(75,41,79,.22);box-shadow:0 22px 44px -30px rgba(75,41,79,.4)}
+.guide-card-featured::before{content:"FEATURED GUIDE";position:absolute;top:0;right:0;padding:8px 12px;background:var(--plum);color:#fff8ed;font-family:var(--mono);font-size:8px;letter-spacing:.1em;font-weight:800}
+.guide-card-top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:25px}
+.guide-read{font-family:var(--mono);font-size:8px;letter-spacing:.08em;color:var(--ink-soft);font-weight:700}
+.guide-card h3{font-family:var(--serif);font-size:25px;line-height:1.12;font-weight:500;margin:0 0 11px}
+.guide-card p{font-size:12.5px;line-height:1.65;color:var(--ink-soft);margin:0;max-width:390px}
+.guide-cta{margin-top:auto;padding-top:22px;display:inline-block;align-self:flex-start;font-family:var(--mono);font-size:9.5px;letter-spacing:.05em;font-weight:800;color:var(--plum);text-decoration:none;border-bottom:1px solid rgba(75,41,79,.4);padding-bottom:4px}
+.guide-cta:hover{border-color:var(--plum)}
+.guides-bottom-note{margin-top:18px;padding:18px 20px;background:var(--plum);color:#fff8ed;display:flex;justify-content:space-between;align-items:center;gap:25px}
+.guides-bottom-note span{font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:#ffd59f;font-weight:800}
+.guides-bottom-note strong{font-family:var(--serif);font-size:17px;font-weight:500}
+@media(max-width:800px){.blog-placeholder-grid{grid-template-columns:1fr 1fr}.guide-card:last-child{grid-column:1/-1}.guides-head{align-items:start}.guides-bottom-note{display:block}.guides-bottom-note strong{display:block;margin-top:7px}}
+@media(max-width:600px){.guides-head{display:block}.guides-view-all{display:inline-block;margin-top:15px}.blog-placeholder-grid{grid-template-columns:1fr}.guide-card:last-child{grid-column:auto}.guide-card{min-height:300px}.guides-bottom-note{padding:16px}.guides-bottom-note strong{font-size:15px}}
+@media(prefers-reduced-motion:reduce){.guide-card{transition:none}}
