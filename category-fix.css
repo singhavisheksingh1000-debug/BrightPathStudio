@@ -433,3 +433,21 @@
 .nstatus{min-height:18px;margin-top:9px;font-size:12px;font-weight:600}
 .campaign-funnel small{display:block;line-height:1.5}
 @media(max-width:700px){.email-perks{display:grid;grid-template-columns:1fr 1fr;gap:9px}.nrow{display:flex;flex-direction:column}.nrow input{padding-right:14px;width:100%}.nrow .btn{width:100%}}
+
+/* How It Works — four-step confidence builder */
+.how-it-works-section{padding:86px 0;background:var(--paper-card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.how-it-works-head{max-width:680px;margin:0 auto 42px;text-align:center}
+.how-it-works-head .eyebrow{justify-content:center}
+.how-it-works-head h2{font-size:clamp(32px,4vw,48px);margin:10px 0 9px}
+.how-it-works-head p{margin:0;color:var(--ink-soft);font-size:14px;line-height:1.7}
+.how-steps{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.how-step{position:relative;padding:29px 25px 31px;min-height:190px}
+.how-step:not(:last-child){border-right:1px solid var(--line)}
+.how-number{display:inline-grid;place-items:center;width:38px;height:38px;border:1px solid rgba(75,41,79,.32);color:var(--plum);font-family:var(--mono);font-size:10px;font-weight:800;margin-bottom:20px}
+.how-step h3{font-family:var(--serif);font-size:24px;font-weight:500;margin:0 0 7px}
+.how-step p{font-size:12px;line-height:1.6;color:var(--ink-soft);margin:0;max-width:240px}
+.how-step::after{content:"→";position:absolute;right:-8px;top:39px;width:16px;height:16px;background:var(--paper-card);color:var(--plum);font-family:var(--mono);font-size:12px;text-align:center;z-index:2}
+.how-step:last-child::after{display:none}
+.how-step:hover .how-number{background:var(--plum);color:#fff8ed;border-color:var(--plum)}
+@media(max-width:800px){.how-steps{grid-template-columns:repeat(2,1fr)}.how-step:nth-child(2){border-right:0}.how-step:nth-child(-n+2){border-bottom:1px solid var(--line)}.how-step:nth-child(2)::after{display:none}.how-step:nth-child(3)::after{display:none}}
+@media(max-width:600px){.how-it-works-section{padding:64px 0}.how-steps{grid-template-columns:1fr}.how-step{min-height:auto;padding:23px 20px}.how-step:not(:last-child){border-right:0;border-bottom:1px solid var(--line)}.how-step::after{display:none}.how-number{margin-bottom:14px}}
