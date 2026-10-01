@@ -83,7 +83,7 @@
       const res=await fetch('/api/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,source:window.location.pathname})});
       const data=await res.json().catch(()=>({}));
       if(!res.ok)throw new Error(data.error||'Subscription failed');
-      if(nstatus)nstatus.textContent='You’re in! Watch your inbox for BrightPathStudio updates.';
+      if(nstatus)nstatus.textContent='You’re in! Check your inbox — your free printable sample is on its way.';
       nform.reset();
     }catch(err){
       if(nstatus)nstatus.textContent='Please try again in a moment.';
