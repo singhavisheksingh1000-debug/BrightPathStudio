@@ -118,3 +118,119 @@
   .hero-redesigned .hero-slide-content h2{font-size:clamp(34px,11vw,52px)!important}
   .hero-redesigned .hero-slide-content p{font-size:15px!important}
 }
+
+
+/* Premium hero refinement — October 2026 */
+.hero-redesigned .hero-slider{
+  height:min(84vh,860px);
+  min-height:620px;
+  background:#1f171f;
+}
+.hero-redesigned .hero-slide-image{
+  transform:scale(1.015)!important;
+  transition:transform 8s cubic-bezier(.2,.65,.2,1),filter .4s ease!important;
+  filter:saturate(.92) contrast(1.04) brightness(.88)!important;
+}
+.hero-redesigned .hero-slide.is-active .hero-slide-image{
+  transform:scale(1.045)!important;
+}
+.hero-redesigned .hero-slide-overlay{
+  background:
+    linear-gradient(90deg,rgba(20,14,20,.82) 0%,rgba(35,22,35,.55) 34%,rgba(35,22,35,.16) 70%,rgba(20,14,20,.06) 100%),
+    linear-gradient(180deg,rgba(10,8,12,.08) 28%,rgba(10,8,12,.62) 100%)!important;
+}
+.hero-redesigned .hero-slide-content{
+  left:clamp(28px,7vw,104px)!important;
+  bottom:clamp(72px,11vh,112px)!important;
+  max-width:min(760px,70vw)!important;
+  padding:28px 30px 30px!important;
+  border-left:2px solid rgba(255,218,168,.78)!important;
+  background:linear-gradient(90deg,rgba(28,18,29,.46),rgba(28,18,29,.08))!important;
+  backdrop-filter:blur(2px);
+  -webkit-backdrop-filter:blur(2px);
+  text-shadow:0 2px 18px rgba(0,0,0,.42)!important;
+}
+.hero-redesigned .hero-slide-kicker{
+  font-size:11px!important;
+  letter-spacing:.16em!important;
+  color:#ffe0b1!important;
+  font-weight:600;
+}
+.hero-redesigned .hero-slide-content h2{
+  font-size:clamp(44px,6.2vw,88px)!important;
+  letter-spacing:-.035em!important;
+  line-height:.94!important;
+  margin:12px 0 12px!important;
+  max-width:760px;
+}
+.hero-redesigned .hero-slide-content p{
+  color:rgba(255,249,240,.92)!important;
+  font-size:clamp(16px,1.55vw,21px)!important;
+  line-height:1.5!important;
+  max-width:600px!important;
+  margin-bottom:20px!important;
+}
+.hero-redesigned .hero-slide-link{
+  padding:13px 18px!important;
+  border:1px solid rgba(255,235,204,.78)!important;
+  background:rgba(75,41,79,.72)!important;
+  box-shadow:0 10px 28px rgba(0,0,0,.16);
+  letter-spacing:.08em!important;
+  transition:background .2s ease,transform .2s ease,border-color .2s ease!important;
+}
+.hero-redesigned .hero-slide-link:hover{
+  background:var(--pumpkin)!important;
+  border-color:var(--pumpkin)!important;
+  transform:translateY(-2px);
+}
+.hero-redesigned .hero-slider-arrow{
+  width:48px!important;height:48px!important;
+  background:rgba(35,22,35,.58)!important;
+  border-color:rgba(255,255,255,.25)!important;
+  color:#fff8ed!important;
+  box-shadow:0 10px 24px rgba(0,0,0,.18);
+  backdrop-filter:blur(8px);
+}
+.hero-redesigned .hero-slider-arrow:hover{
+  background:var(--pumpkin)!important;
+  border-color:var(--pumpkin)!important;
+}
+.hero-redesigned .hero-slider-dots{
+  bottom:24px!important;
+  padding:8px 11px!important;
+  background:rgba(25,17,26,.55)!important;
+  border:1px solid rgba(255,255,255,.16);
+}
+.hero-redesigned .hero-slider-dots button{
+  width:7px!important;height:7px!important;
+  opacity:.72;
+}
+.hero-redesigned .hero-slider-dots button.is-active{
+  width:24px!important;
+  border-radius:8px!important;
+  opacity:1;
+  background:#ffd39a!important;
+  border-color:#ffd39a!important;
+}
+@media(max-width:900px){
+  .hero-redesigned .hero-slider{height:76vh;min-height:560px}
+  .hero-redesigned .hero-slide-content{
+    left:5vw!important;right:5vw!important;bottom:82px!important;
+    max-width:90vw!important;padding:22px 22px 24px!important;
+  }
+  .hero-redesigned .hero-slide-content h2{font-size:clamp(38px,8vw,64px)!important}
+}
+@media(max-width:600px){
+  .hero-redesigned .hero-slider{height:78vh;min-height:520px}
+  .hero-redesigned .hero-slide-content{
+    left:18px!important;right:18px!important;bottom:70px!important;
+    max-width:calc(100% - 36px)!important;padding:18px 18px 20px!important;
+  }
+  .hero-redesigned .hero-slide-content h2{font-size:clamp(34px,10.5vw,52px)!important}
+  .hero-redesigned .hero-slide-content p{font-size:15px!important;line-height:1.45!important}
+  .hero-redesigned .hero-slide-link{font-size:10.5px!important;padding:11px 13px!important}
+  .hero-redesigned .hero-slider-arrow{width:38px!important;height:38px!important;font-size:24px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .hero-redesigned .hero-slide-image{transform:none!important;transition:none!important}
+}
