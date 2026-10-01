@@ -391,3 +391,12 @@
 @media(max-width:850px){.product-preview-feature{grid-template-columns:1fr;gap:38px}.preview-copy{max-width:680px}.preview-copy .btn{width:auto}}
 @media(max-width:600px){.product-preview-section{padding:66px 0}.preview-thumbs{gap:7px}.preview-copy h3{font-size:32px}.preview-copy .btn{width:100%}}
 @media(prefers-reduced-motion:reduce){.preview-main img,.preview-thumb{transition:none}}
+
+/* Perfect For — high-visibility buying cue */
+.perfect-for{margin:14px 0 16px;padding:10px 12px;background:linear-gradient(90deg,rgba(75,41,79,.075),rgba(255,255,255,.42));border:1px solid rgba(75,41,79,.14);border-left:3px solid var(--plum);display:flex;flex-direction:column;gap:4px;position:relative}
+.perfect-for::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 0%,rgba(255,255,255,.45) 48%,transparent 58%);transform:translateX(-120%);transition:transform .65s ease;pointer-events:none}
+.product-card:hover .perfect-for::after{transform:translateX(120%)}
+.perfect-for-label{font-family:var(--mono);font-size:9px;letter-spacing:.12em;font-weight:800;color:var(--plum)}
+.perfect-for>span:last-child{font-size:11px;line-height:1.5;color:var(--ink);font-weight:500}
+@media(max-width:600px){.perfect-for{margin:12px 0 14px;padding:9px 10px}.perfect-for>span:last-child{font-size:10.5px}}
+@media(prefers-reduced-motion:reduce){.perfect-for::after{display:none}}
