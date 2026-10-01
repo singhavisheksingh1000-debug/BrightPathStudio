@@ -475,3 +475,9 @@
 @media(max-width:800px){.blog-placeholder-grid{grid-template-columns:1fr 1fr}.guide-card:last-child{grid-column:1/-1}.guides-head{align-items:start}.guides-bottom-note{display:block}.guides-bottom-note strong{display:block;margin-top:7px}}
 @media(max-width:600px){.guides-head{display:block}.guides-view-all{display:inline-block;margin-top:15px}.blog-placeholder-grid{grid-template-columns:1fr}.guide-card:last-child{grid-column:auto}.guide-card{min-height:300px}.guides-bottom-note{padding:16px}.guides-bottom-note strong{font-size:15px}}
 @media(prefers-reduced-motion:reduce){.guide-card{transition:none}}
+
+/* Real product covers for Free Resources */
+.free-product-cover{overflow:hidden;background:#f7f3ec;}
+.free-product-cover img{width:100%;height:100%;display:block;object-fit:cover;object-position:center;transition:transform .45s ease;}
+.product-card-free:hover .free-product-cover img{transform:scale(1.035);}
+@media(prefers-reduced-motion:reduce){.free-product-cover img{transition:none}.product-card-free:hover .free-product-cover img{transform:none}}
