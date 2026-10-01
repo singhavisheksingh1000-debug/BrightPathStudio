@@ -234,3 +234,71 @@
 @media(prefers-reduced-motion:reduce){
   .hero-redesigned .hero-slide-image{transform:none!important;transition:none!important}
 }
+
+
+/* Sliding announcement bar — high-visibility storefront treatment */
+.seasonal-bar{
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  min-height:42px;
+  background:linear-gradient(90deg,#3b203e,#4b294f 50%,#3b203e);
+  color:#fff8ec;
+  border-bottom:1px solid rgba(255,255,255,.14);
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:.045em;
+}
+.seasonal-marquee{
+  flex:1;
+  min-width:0;
+  overflow:hidden;
+  white-space:nowrap;
+  mask-image:linear-gradient(90deg,transparent 0,#000 5%,#000 95%,transparent 100%);
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 5%,#000 95%,transparent 100%);
+}
+.seasonal-marquee-track{
+  display:inline-flex;
+  width:max-content;
+  align-items:center;
+  animation:seasonalScroll 26s linear infinite;
+}
+.seasonal-marquee-track span{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  padding-right:72px;
+}
+.seasonal-marquee-track strong{color:#ffd9a8;font-weight:700}
+.seasonal-bar:hover .seasonal-marquee-track{animation-play-state:paused}
+.seasonal-bar-cta{
+  flex:none;
+  position:relative;
+  z-index:2;
+  display:flex;
+  align-items:center;
+  align-self:stretch;
+  padding:0 22px;
+  color:#2d202d;
+  background:#ffd39a;
+  text-decoration:none;
+  font-weight:800;
+  letter-spacing:.06em;
+  border-left:1px solid rgba(255,255,255,.2);
+  transition:background .2s ease,color .2s ease;
+}
+.seasonal-bar-cta:hover{background:#fff3d8;color:#4b294f}
+@keyframes seasonalScroll{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+@media(max-width:650px){
+  .seasonal-bar{min-height:40px;font-size:10px}
+  .seasonal-bar-cta{padding:0 12px;font-size:9px}
+  .seasonal-marquee-track{animation-duration:21s}
+  .seasonal-marquee-track span{padding-right:48px}
+}
+@media(prefers-reduced-motion:reduce){
+  .seasonal-marquee-track{animation:none}
+}
