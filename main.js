@@ -226,3 +226,22 @@
   updateBagCount();
   renderCart();
 })();
+
+/* Product preview gallery */
+document.addEventListener("DOMContentLoaded",function(){
+  const main=document.getElementById("preview-main-image");
+  const thumbs=document.querySelectorAll(".preview-thumb");
+  if(!main||!thumbs.length)return;
+  thumbs.forEach(function(btn){
+    btn.addEventListener("click",function(){
+      const src=btn.getAttribute("data-preview-src");
+      const alt=btn.getAttribute("data-preview-alt")||"Product preview";
+      if(!src)return;
+      main.style.opacity="0.35";
+      setTimeout(function(){main.src=src;main.alt=alt;main.style.opacity="1"},120);
+      thumbs.forEach(function(item){item.classList.remove("is-active");item.setAttribute("aria-selected","false")});
+      btn.classList.add("is-active");
+      btn.setAttribute("aria-selected","true");
+    });
+  });
+});
