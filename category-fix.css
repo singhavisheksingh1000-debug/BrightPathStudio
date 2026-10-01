@@ -323,3 +323,20 @@
 @media(max-width:900px){.need-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.need-card,.need-content{min-height:290px}}
 @media(max-width:600px){.shop-by-need-section{padding:64px 0}.shop-by-need-head{margin-bottom:28px}.need-grid{grid-template-columns:1fr;gap:14px}.need-card,.need-content{min-height:270px}.need-content{padding:21px}.need-content strong{font-size:23px}}
 @media(prefers-reduced-motion:reduce){.need-card,.need-image{transition:none}}
+
+/* Why BrightPathStudio — premium trust strip */
+.why-bps-section{padding:76px 0;background:var(--plum);color:#fff8ed;position:relative;overflow:hidden}
+.why-bps-section::before{content:"";position:absolute;width:520px;height:520px;right:-220px;top:-300px;border:1px solid rgba(255,211,154,.18);border-radius:50%;box-shadow:0 0 0 70px rgba(255,211,154,.025),0 0 0 140px rgba(255,211,154,.018)}
+.why-bps-inner{display:grid;grid-template-columns:minmax(280px,.85fr) minmax(0,1.4fr);gap:64px;align-items:center;position:relative;z-index:1}
+.why-bps-intro .eyebrow{color:#ffd9a8}
+.why-bps-intro h2{font-size:clamp(34px,4.5vw,58px);line-height:.98;letter-spacing:-.025em;color:#fff8ed;margin:13px 0 16px}
+.why-bps-intro p{max-width:500px;color:rgba(255,248,237,.78);font-size:15px;line-height:1.7;margin:0}
+.why-bps-points{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid rgba(255,255,255,.16)}
+.why-bps-point{display:grid;grid-template-columns:38px 1fr;gap:15px;padding:23px 18px 23px 0;border-bottom:1px solid rgba(255,255,255,.16)}
+.why-bps-point:nth-child(odd){padding-right:28px;border-right:1px solid rgba(255,255,255,.16)}
+.why-bps-point:nth-child(even){padding-left:28px}
+.why-bps-icon{display:flex;align-items:center;justify-content:center;width:30px;height:30px;border:1px solid rgba(255,211,154,.5);color:#ffd39a;font-family:var(--mono);font-size:10px}
+.why-bps-point strong{display:block;color:#fff8ed;font-family:var(--serif);font-size:18px;font-weight:500;margin-bottom:5px}
+.why-bps-point div>span{display:block;color:rgba(255,248,237,.68);font-size:12px;line-height:1.55}
+@media(max-width:800px){.why-bps-inner{grid-template-columns:1fr;gap:38px}.why-bps-intro{max-width:680px}.why-bps-points{grid-template-columns:1fr}.why-bps-point:nth-child(odd){padding-right:0;border-right:0}.why-bps-point:nth-child(even){padding-left:0}}
+@media(max-width:600px){.why-bps-section{padding:60px 0}.why-bps-points{display:block}.why-bps-point{padding:20px 0!important;border-right:0!important}.why-bps-intro h2{font-size:36px}}
