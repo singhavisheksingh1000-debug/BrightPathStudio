@@ -245,3 +245,17 @@ document.addEventListener("DOMContentLoaded",function(){
     });
   });
 });
+
+/* Halloween countdown */
+document.addEventListener("DOMContentLoaded",function(){
+  const days=document.getElementById("countdown-days"),hours=document.getElementById("countdown-hours"),minutes=document.getElementById("countdown-minutes"),seconds=document.getElementById("countdown-seconds");
+  if(!days||!hours||!minutes||!seconds)return;
+  function tick(){
+    const now=new Date(), year=now.getFullYear(), target=new Date(year,9,31,23,59,59);
+    if(now>target) target.setFullYear(year+1);
+    const diff=Math.max(0,target-now);
+    const d=Math.floor(diff/86400000), h=Math.floor(diff%86400000/3600000), m=Math.floor(diff%3600000/60000), s=Math.floor(diff%60000/1000);
+    days.textContent=String(d).padStart(2,"0"); hours.textContent=String(h).padStart(2,"0"); minutes.textContent=String(m).padStart(2,"0"); seconds.textContent=String(s).padStart(2,"0");
+  }
+  tick(); setInterval(tick,1000);
+});
