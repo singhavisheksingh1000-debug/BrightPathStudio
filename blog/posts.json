@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-10-02T01:00:00+05:30",
+  "updatedAt": "2026-10-05T00:00:00+05:30",
   "posts": [
+    {
+      "title": "25 Halloween Party Games for Kids & Families | BrightPathStudio",
+      "description": "25 easy Halloween party games for kids and families that need almost no prep. Get a free Halloween Party Pack, check freebies and explore Halloween printables.",
+      "category": "Halloween",
+      "image": "https://images.pexels.com/photos/34488705/pexels-photo-34488705.jpeg?auto=compress&cs=tinysrgb&w=2200",
+      "url": "/blog/halloween-party-games-for-kids.html",
+      "date": "2026-10-05T00:00:00+05:30",
+      "readTime": 6
+    },
     {
       "title": "50+ Couples Halloween Costume Ideas 2026 | BrightPathStudio",
       "description": "Discover 50+ couples Halloween costume ideas for 2026 including cute, funny, scary, romantic, DIY and last-minute costumes. Get a free Halloween costume planner sample.",
@@ -12,7 +21,7 @@
     },
     {
       "title": "Ultimate Pregnancy Journal Guide | BrightPathStudio",
-      "description": "Learn what to write in a pregnancy journal from the first positive test through baby",
+      "description": "Learn what to write in a pregnancy journal from the first positive test through baby's first year.",
       "category": "Pregnancy & Baby",
       "image": "https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=1800&q=85",
       "url": "/blog/ultimate-pregnancy-journal-guide.html",
@@ -21,7 +30,7 @@
     },
     {
       "title": "Pregnancy Journal Ideas | BrightPathStudio",
-      "description": "Meaningful pregnancy journal prompts for documenting milestones, emotions, memories, hopes, appointments and the little moments you",
+      "description": "Meaningful pregnancy journal prompts for documenting milestones, emotions, memories, hopes and appointments.",
       "category": "Pregnancy & Baby",
       "image": "https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=1800&q=90",
       "url": "/blog/pregnancy-journal-ideas.html",
@@ -47,15 +56,6 @@
       "readTime": 8
     },
     {
-      "title": "25 Halloween Party Games for Kids | BrightPathStudio",
-      "description": "Discover 25 easy Halloween party games for kids, printable activities, classroom ideas, scavenger hunts, bingo and screen-free family fun.",
-      "category": "Halloween",
-      "image": "https://images.unsplash.com/photo-1509557965875-b88c97052f0e?auto=format&fit=crop&w=1800&q=90",
-      "url": "/blog/halloween-party-games-for-kids.html",
-      "date": "2026-09-30T07:25:44+00:00",
-      "readTime": 7
-    },
-    {
       "title": "Ultimate Halloween Party Planning Checklist | BrightPathStudio",
       "description": "Use this Halloween party planning checklist to organize guests, theme, decorations, food, games, costumes, music, safety and cleanup.",
       "category": "Halloween",
@@ -66,7 +66,7 @@
     },
     {
       "title": "50 Indoor Activities for Kids | BrightPathStudio",
-      "description": "50 simple indoor activities for kids including creative projects, movement games, learning ideas, pretend play and quiet activities for home.",
+      "description": "50 simple indoor activities for kids including creative projects, movement games, learning ideas, pretend play and quiet activities.",
       "category": "Kids",
       "image": "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=1800&q=90",
       "url": "/blog/kids-indoor-activities.html",
@@ -75,7 +75,7 @@
     },
     {
       "title": "25 Wedding Planning Mistakes Every Bride Should Avoid | BrightPathStudio",
-      "description": "Avoid 25 common wedding planning mistakes involving budgets, timelines, vendors, guest lists, contracts, logistics and the final week before the wedding.",
+      "description": "Avoid common wedding planning mistakes involving budgets, timelines, vendors, guest lists, contracts and logistics.",
       "category": "Wedding Planning",
       "image": "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1800&q=90",
       "url": "/blog/wedding-planning-mistakes.html",
@@ -84,7 +84,7 @@
     },
     {
       "title": "ADHD Planning Tips for a Less Overwhelming Week | BrightPathStudio",
-      "description": "Practical ADHD-friendly planning tips for creating a less overwhelming week using visible priorities, flexible time blocks, realistic task lists and reset routines.",
+      "description": "Practical planning tips for creating a less overwhelming week using visible priorities, flexible time blocks and realistic task lists.",
       "category": "ADHD & Productivity",
       "image": "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1800&q=90",
       "url": "/blog/adhd-planning-tips.html",
